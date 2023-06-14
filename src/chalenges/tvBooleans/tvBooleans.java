@@ -12,7 +12,7 @@ public class tvBooleans {
     
     public static void main(String[] args){
 
-        JOptionPane.showMessageDialog(null, "Temos 2 trabalhos para fazer\n\s\s- Se ambos derem certo, vamos comprar uma TV de 50\" e tomar um sorvete no shopping.\n\s\s - Se apenas 1 der certo, vamos comprar uma TV de 32\" e tomar um sorvete no shopping.\n\s\s - Se nenhum der certo, vamos ficar em casa mesmo.");
+        JOptionPane.showMessageDialog(null, "Temos 2 trabalhos para fazer\n\t\t- Se ambos derem certo, vamos comprar uma TV de 50\" e tomar um sorvete no shopping.\n\t\t - Se apenas 1 der certo, vamos comprar uma TV de 32\" e tomar um sorvete no shopping.\n\t\t - Se nenhum der certo, vamos ficar em casa mesmo.");
         
         boolean trabalho1 = Boolean.parseBoolean(
             JOptionPane.showInputDialog("O primeiro trabalho deu certo?\nColoque \"sim\" ou \"nao\"...")

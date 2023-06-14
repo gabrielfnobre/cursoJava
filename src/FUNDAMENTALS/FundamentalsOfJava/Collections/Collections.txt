@@ -1,15 +1,15 @@
     COLLECTIONS
 
-Collections é como chamamos um conjunto de estruturas em Java que são usadas para guardar um conjunto de valores.
+Collections é como chamamos um conjunto de estruturas em Java usadas para guardar um conjunto de valores.
 São semelhantes aos arrays, mas possuem algumas diferenças básicas:
 
     # Possuem tamanho dinâmico:
         Diferente dos arrays, onde temos que falar qual o tamanho desde o início, as collections possuem tamanho 
-        dinâmico, ou seja podemos alterar o tamanho de uma collection quando e como quisermos;
+        dinâmico, ou seja, podemos alterar o tamanho de uma collection quando e como quisermos;
     
     # Podem ser tanto Heterogêneas como Homogêneas:
         Ou seja, podem ter apenas um único tipo de valor dentro delas (por exemplo: somente Integer, somente 
-        Double e etc), como também podem ter vários tipos de valores dentro de si (Integer junto com Double, junto 
+        Double e etc), como também podem ter vários tipos de valores dentro de si (Integer junto com Double, junto
         com String e etc);
 
     # Só aceitam valores do tipo Wrapper ou Array:
