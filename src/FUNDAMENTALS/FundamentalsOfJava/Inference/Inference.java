@@ -44,6 +44,8 @@
  
  */
 
+package FUNDAMENTALS.FundamentalsOfJava.Inference;
+
 public class Inference {
     
     public static void main(String[] args){

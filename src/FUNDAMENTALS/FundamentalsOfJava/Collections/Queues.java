@@ -91,6 +91,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Queues {
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static void main(String[] args){
 
         //EX01

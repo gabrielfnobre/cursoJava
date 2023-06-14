@@ -1,3 +1,5 @@
+package FUNDAMENTALS.FundamentalsOfJava.Wrappers;
+
 //  WRAPPERS:
 
 /*  Wrappers, são objetos do Java que simulam os 8 tipos primitivos, porém, como o próprio nome
@@ -30,6 +32,7 @@
 
     Vejamos alguns exemplos...
  */
+
 
 public class Wrappers {
 

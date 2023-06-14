@@ -1,3 +1,4 @@
+package chalenges.orientationObject.classData;
 public class ClassDate {
     
     int day;

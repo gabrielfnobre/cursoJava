@@ -1,3 +1,4 @@
+package chalenges.ArraysGradesOfStudent;
 import javax.swing.JOptionPane;
 
 public class ArraysGradesOfStudent {

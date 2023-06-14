@@ -1,3 +1,5 @@
+package FUNDAMENTALS.FundamentalsOfJava.Collections;
+
 //  SETS:
 
 /*  O "set" é uma estrutura de dados dentro dos collections onde é possível armazenar valores das seguintes

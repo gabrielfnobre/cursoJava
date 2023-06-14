@@ -18,6 +18,8 @@
                 indicando qual é a média da turma;
  */
 
+package chalenges.averageOfClass;
+
 import javax.swing.JOptionPane;
 
 public class AverageOfClass {
