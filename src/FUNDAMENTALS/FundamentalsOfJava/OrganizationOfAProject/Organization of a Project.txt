@@ -1,0 +1,26 @@
+ORGANIZAÇÃO DE UM PROJETO
+
+A organização de um projeto de Java sempre se dá da seguinte forma:
+
+projeto* (Pasta do projeto)
+   |
+   |
+   |____________src* (Pasta que conterá todos os packages - pacotes)
+                 |
+                 |                 ________package1*
+                 |                |
+                 |________________|_______________package2* (Os Pacotes conterão as 
+                                  |                   |      classes, um pacote nada
+                                  |________package3*  |      mais é do que uma pasta 
+                                                      |      que contém todas as 
+                                                      |      classes dentro dele.)
+                                                      |
+                                              ________|________
+                                             |        |        |
+                                           Class*   Class*   Class*
+                                                            (Classes que serão
+                                                             invocadas pelo 
+                                                             programa)
+
+*A forma como estão escritos os nomes dos packeges, projeto e classes é como se 
+escreve convencionalmente.

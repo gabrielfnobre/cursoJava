@@ -1,0 +1,111 @@
+    ATRIBUIÇÃO POR VALOR VS ATRIBUIÇÃO POR REFERÊNCIA
+
+Se tratando de alocação de memória, no Java existe um conceito muito importante de ser entendido e que têm
+impacto direto sobre a Orientação a Objetos, que o conceito de "Atribuição por Valor" VS "Atribuição por 
+Referência".
+
+
+    ATRIBUIÇÃO POR VALOR
+
+A primeira coisa a se ter em mente quando falamos de atribuição por valor é que a atribuição por valor 
+SEMPRE VAI ACONTECER DE UM TIPO PRIMITIVO PARA UM TIPO PRIMITIVO, ela é feita quando temos uma variável que
+contém um valor primitivo e atribuímos a variável em si como valor para outra variável, dessa forma:
+
+    int a = 10;
+    int b = a;
+
+    Veja no exemplo assima o que fizemos, atribuímos não o valor, mas sim a varíavel inteira "a"
+    como valor para a variável "b", isso é o que chamamos de atribuição por valor.
+
+O que acontece nesses casos quando falamos em termos de alocação de memória? Será que a variável "a" e a 
+"b" vão apontar para o mesmo espaço de memória? Será que se mudarmos o valor de "a" o valor de "b" também
+será mudado? A resposta é não! Veja a imagem abaixo....
+ 
+     _________
+    |         |                          ___________
+    |         |------------------------>|           |
+    |    A    |                         |    A:10   |
+    |         |                         |___________|
+    |_________|                           |_|_|_|_|
+
+     _________
+    |         |                          ___________
+    |         |------------------------>|           |
+    |    B    |                         |   B:10    |
+    |         |                         |___________|
+    |_________|                           |_|_|_|_|
+
+    Como podemos ver na imagem a cima, o Java vai reservar um espaço de memória diferente para cada 
+    variável, embora se tenha feito a atribuição de variável para outra variável, o que o Java vai 
+    levar em consideração são os tipos, se forem tipos primitivos, o java vai criar um novo espaço 
+    de memória com o valor copiado e vai direcionar para a nova variável. O que aconteceria se 
+    mudássemos o valor de "a" para 5?
+
+        a = 5;
+     _________
+    |         |                          ___________
+    |         |------------------------>|           |
+    |    A    |                         |    A:5    |
+    |         |                         |___________|
+    |_________|                           |_|_|_|_|
+
+     _________
+    |         |                          ___________
+    |         |------------------------>|           |
+    |    B    |                         |   B:10    |
+    |         |                         |___________|
+    |_________|                           |_|_|_|_|
+
+    Note que apenas o valor de "a" mudou o de "b" continua o mesmo, por que não fazem referência ao 
+    mesmo espaço de memória.
+
+
+    ATRIBUIÇÃO POR REFERÊNCIA
+
+A primeira coisa que devemos ter em mente quando falamos de atribuição por referência é que a atribuição por 
+referência SEMPRE VAI ACONTECER DE UM TIPO OBJETO PARA UM TIPO OBJETO, ela é feita quando temos uma variável 
+que contém um objeto e atribuímos a variável em si como valor para outra variável, dessa forma:
+
+    People nome1 = new People("David");
+    People nome2 = nome1;
+
+    Perceba no exemplo acima que temos uma atribuição por referência de um objeto instanciado a partir da 
+    variável "nome1" para a variável "nome2". Nesse exemplo, o que é passado para a segunda variável é apenas 
+    o endereço de memória que referencia para ao espaço onde os valores estão alocados, como podemos ver na 
+    imagem abaixo:
+
+     _________
+    |         |                         
+    |         |         
+    |  NOME1  |----------------                           
+    |         |               |        
+    |_________|               |          ___________                ____________________
+                              |         |           |              |                    |
+     _________                |-------->|  0x23456  |------------->|    L1: "DAVID"     |
+    |         |               |         |___________|              |    L2:__________   |
+    |         |               |           |_|_|_|_|                |    L3:__________   |
+    |  NOME2  |----------------                                    |____________________|
+    |         |
+    |_________|
+
+    Perceba que o oque é passado de uma variável para a outra é apenas o endereço que aponta para
+    o lugar onde os valores estão alocados. Se por um acaso mudássemos o valor, veja o que 
+    aconteceria:
+
+    nome2.nome = "Marcos";
+     _________
+    |         |                         
+    |         |         
+    |  NOME1  |----------------                           
+    |         |               |        
+    |_________|               |          ___________                ____________________
+                              |         |           |              |                    |
+     _________                |-------->|  0x23456  |------------->|    L1: "MARCOS"    |
+    |         |               |         |___________|              |    L2:__________   |
+    |         |               |           |_|_|_|_|                |    L3:__________   |
+    |  NOME2  |----------------                                    |____________________|
+    |         |
+    |_________|
+
+    O valor seria mudado tanto para a variável "nome1" quanto para a variável "nome2". Por que elas
+    estão alocadas no mesmo espaço de memória.

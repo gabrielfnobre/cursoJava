@@ -1,0 +1,18 @@
+JSHELL
+
+A partir do Java 9, o java possuí uma ferramenta muito útil
+para os programadores, que é o Jshell.
+
+O Jshell é um interpretador Java que pode ser encontrado no 
+próprio terminal do sistema operacional de um computador.
+
+Mas claro que ele não vai para lá sozinho, é necessário ter 
+instalado na sua máquina o JDK 9 ou superior e tê-lo como 
+caminho no Path da sua máquina.
+
+Para startá-lo use o comando "jshell", prontamente ele irá
+iniciar e você poderá fazer uma sequência de operações nele
+desde operações, guardar variáveis, classes, métodos e além.
+
+Para saber quais suas funcionalidades, acesse o menu por 
+através do comando "/help".

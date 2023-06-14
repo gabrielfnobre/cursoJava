@@ -1,0 +1,117 @@
+    CONSTRUTORES
+
+Tanto no java como em outras linguagens de programação existe o que chamamos de métodos construtores.
+Métodos construtores são diferentes de métodos comuns, pois eles possuem objetivos diferentes.
+
+Um método comum tem o objetivo de trazer alguma funcionalidade aos objetos de uma classe. O que 
+chamamos de comportamentos.
+
+Enquanto os métodos construtores tem o objetivo de construir novos objetos para uma classe, por 
+através dele que conseguimos passar todos os atributos que precisamos para um objeto.
+
+Para ilustrar: Um método construtor é semelhante a um molde, assim como o molde de uma garrafa define
+que um determinado objeto é uma garrafa e não um copo, os construtores servem para definir que um
+objeto pertence a uma determinada classe.
+
+Outra coisa sobre métodos construtores é que eles não possuem retorno, pois o objetivo deles é gerar 
+objetos. Por isso não precisam retornar nada, o que eles fazem é gerar um espaço na memória do 
+computador onde os objetos podem ser armazenados.
+
+
+    ANATOMIA DOS CONSTRUTORES
+
+A anatomia de um método construtor java deve seguir a seguinte sintaxe:
+
+    MesmoNomeDaClasse (){
+        ...
+        algoritmo do construtor
+        ...
+    }
+
+    Explicando:
+
+        # Ausência de Tipação: 
+            A primeira coisa que percebemos de diferente entre um método comum e um método construtor
+            é a ausência de um tipo definindo ele, como um "int", "double" ou outro. Isso é 
+            proposital, pois essa é uma das coisas que o java olha para saber se um método é comum ou
+            construtor, se ele tiver tipação o java entende que é um método comum, se não tiver 
+            tipação, o java entende que é um construtor. Mas não é só isso que o java olha para 
+            entender se o método é construtor, outra coisa é o nome do método...
+        
+        # Nome Exatamente Igual ao da Classe:
+            Um construtor sempre deve ter o mesmo nome da classe, e deve ser escrito da mesma forma 
+            que a classe, com a primeira letra do nome em maiúsculo (se a classe tiver sido escrita
+            assim). Essa é outra coisa que o java olha para identificar um método como construtor, 
+            duas coisas: "ausência de tipação" e "nome exatamente igual ao da classe";
+
+        # Campo de parâmetros:
+            Assim como os demais métodos, o construtor também deve ter um campo de parâmetros, mesmo
+            que ele não receba parâmetro nenhum, ainda assim ele precisa ter campo de parâmetro.
+
+
+    CONSTRUTOR PADRÃO E CONSTRUTOR PARAMETRIZADO
+
+Outra coisa que precisamos entender sobre os métodos construtores do java é que podemos ter 2 tipos 
+diferentes de construtores: "Construtor Padrão" e "Construtor Parametrizado"...
+
+    # CONSTRUTOR PADRÃO: 
+        Um construtor já implícito da linguagem, quando criamos uma classe, mesmo que não tenhamos 
+        criado explícitamente um contrutor, por padrão o java entende que a classe precisa de um 
+        método construtor e gera ele automaticamente. 
+        Por padrão, esse método não possuí nenhum algoritmo dentro dele, mas podemos gerar um 
+        construtor padrão explícitamente e colocar dentro dele qualquer algoritmo que quisermos. A 
+        única coisa que precisamos nos atentar é que um construtor padrão NUNCA DEVE RECEBER 
+        PARAMETROS, o seu campo de parâmetros deve ser sempre vazio, pois ele deve ser instanciado
+        sempre em vazio:
+
+            MesmoNomeDaClasse(){
+                ...
+                algoritmo
+                ...
+            }
+
+        OBSERVAÇÃO SOBRE CONSTRUTORES PADRÃO: Só podemos ter 1 dentro de uma classe, não podemos 
+        criar mais de um método construtor;
+
+    # CONSTRUTOR PARAMETRIZADO:
+        Um construtor parametrizado é um construtor que deve ser criado explícitamente e ele sempre 
+        vai receber parâmetros. Podemos criar quantos construtores parametrizados quisermos, isso 
+        depende da nossa necessidade. A única coisa que devemos nos atentar é que construtores 
+        parametrizados NUNCA DEVEM TER A MESMA ASSINATURA, sempre assinatura diferente...
+
+            MesmoNomeDaClasse(){
+                ...
+                algoritmo
+                ...
+            }
+            
+            MesmoNomeDaClasse(int a int b){
+                ...
+                algoritmo
+                ...
+            }
+
+            MesmoNomeDaClasse(double a int b){
+                ...
+                algoritmo
+                ...
+            }
+
+        Note no exemplo acima que criamos 2 métodos construtores parametrizados com assinaturas
+        diferentes e além disso temos um construtor padrão explícito, isso é totalmente aceitável.
+
+        OBSERVAÇÃO: Quando criamos um construtor parametrizado e não possuímos um Construtor Padrão
+                    criado de forma explícita, nós automaticamente perdemos o Construtor Padrão.
+                    Para poder usar o Construtor Padrão novamente, temos que criar um Construtor 
+                    Padrão de forma explícita dentro da classe.
+
+OBSERVAÇÃO: Caso criemos um método da seguinte forma:
+
+    String MesmoNomeDaClasse(String a){
+        ...
+        algoritmo
+        ...
+    }
+
+    Isso se trataria de um método comum, apesar de ter o mesmo nome da classe, ele possuí tipação, o 
+    java iría entendê-lo como um método comum.

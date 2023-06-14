@@ -1,0 +1,46 @@
+EXPLICAÇÃO SOBRE JAVA E JAVAC
+
+Agora vamos falar um pouco sobre terminal. Quando temos o pacote do JDK instalado na nossa máquina adequadamente, com todas as 
+suas variáveis de ambiente e tal. Possuímos 2 ferramentas poderosas no nosso terminal, ferramentas pelas quais é possível 
+executar código java em bytecode e gerar código em bytecode, essas ferramentas são o "java" e o "javac", vejamos como usar 
+cada uma delas...
+
+    # java
+    
+        A ferramenta java é usada para executar o bytecode a partir do terminal, por através dele podemos não só 
+        executar o bytecode, como também passar parâmetros para os argumentos do nosso código, aqueles parâmetros
+        que ficam armazenados no array do nosso "args" no método main, veja como fazer isso:
+
+            # Exemplo de execução comum de bytecode:
+
+                $ C:\Users> java nomeDoExecutavelByteCode
+
+                Veja no exemplo acima, que não é preciso usar a extensão ".class" é só chamar pelo nome do 
+                bytecode, que ele será executado.
+
+            # Exemplo de execução de bytecode com passagem de parâmetros:
+
+                $ C:\Users> java nomeDoExecutavelByteCode 1 2
+
+                Veja no exemplo acima que passamos 2 parâmetros para o nosso executável, passando "1" e "2"
+                como parâmetros para o array de "args" no método main, esses valores poderão ser acessados 
+                no método usando "args[0]" para o valor "1" e args[1] para o valor "2".
+
+    #javac
+
+        A ferramenta javac é o "java compiler" (compilador java) do nosso terminal, ele não executa bytecode, em
+        vez disso ele faz a compilação de um código com extensão ".java" para o ".class", ou seja, transforma um
+        código java em bytecode. Veja como fazer isso no terminal:
+
+            # Exemplo de compilação:
+
+                Digamos que já temos um código java chamado "codigo.java", para compilá-lo basta fazer 
+                isso no terminal...
+
+                $ \Users> javac codigo.java
+
+                ...e pronto, já teremos nesse mesmo diretório um arquivo "codigo.class" em bytecode
+                prontinho para ser executado.
+
+Como podemos ver, são ferramentas muito poderosas, elas fazem com que mesmo sem uma IDE, consigamos executar bytecode e criar
+bytecode. Esse é um dos fortes fundamentos do Java que devemos entender e utilizar caso seja necessário.

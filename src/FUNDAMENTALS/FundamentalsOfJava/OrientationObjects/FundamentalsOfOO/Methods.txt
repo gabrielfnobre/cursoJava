@@ -1,0 +1,110 @@
+    MÉTODOS
+
+Os métodos, não somente no java como em todo o paradigma de Orientação a Objeto, definem as ações que um objeto pode
+ter. Por exemplo, imagine que num programa de uma faculdade temos o objeto "Professor", que métodos ou ações esse 
+professor pode ter? Ele pode ter ações como "dar aula", "dar prova", "dar aula prática", "tirar férias" e etc.
+
+Ou seja, todos os objetos terão ações e essas ações são determinadas pelos métodos dentro de uma classe.
+
+    
+    ANATOMIA DO MÉTODO
+
+A anatomia de um método em java seria a seguinte:
+
+    int somarDoisNumeros(int a, int b){
+        return a + b;
+    }
+
+    Explicando:
+
+        - Tipo do Método: Note que todo método em java precisa ter o seu tipo previamente definido, neste caso 
+            acima o tipo do método é "int". O tipo do método sempre fará referência ao tipo de dado que um 
+            método irá retornar. Mas existem aqueles casos em que um método não retorna nada, o que colocar? 
+            Para isso usamos a palavra reservada "void", essa palavra mostra que o método deverá ser retornado 
+            em vazio.
+
+        - Nomenclatura do Método: por padrão escrevemos os nomes dos métodos em camelCase, isso não é uma regra 
+            que precisa ser seguida, mas é uma boa prática de programação;
+
+        - Assinatura do Método: O que é a assinatura de um método? Toda vez que ouvir esse termo, lembre-se de 
+            que a assinatura de um método ser refere a forma como estão dispostos a entrada de parâmetros de 
+            um método. Por exemplo:
+                
+                (int a, int b)
+
+            Significa que esse método possuí a assinatura de 2 entradas de argumentos, um argumento inteiro e 
+            outro argumento inteiro. Vejamos outra assinatura:
+
+                (double a, int b)
+
+            Note que essa assinatura já é diferente, essa assinatura também possuí 2 entradas de argumentos, 
+            mas 1 entrada é do tipo double enquanto a outra é do tipo inteiro, isso já muda a assinatura.
+
+            Uma assinatura pode ser diferenciada pela quantidade de parâmetros e o tipo de dado que elas estão
+            recebendo.
+
+        - Corpo do Método: Todo método possuí um corpo que é delimitado pelas "{ }", é o corpo do método que 
+            irá conter todo o algoritmo que o método deverá executar e o seu retorno, tudo o que acontece 
+            dentro de um metódo só vai acontecer dentro do escopo do método.
+
+        - Tipos de Entradas e Saídas de Métodos que Podemos Ter: Podemos ver métodos dentro de um programa de 
+            diversas formas:
+
+                Com entradas e saída:
+
+                    int somarDoisNumeros(int a, int b){
+                        return a + b;
+                    }
+
+                Com entradas mas sem saída:
+
+                    void executarProgramacao(int a, int b){
+                        ...
+                        sem o return
+                        ...
+                    }
+
+                Sem entradas e com saída:
+
+                    void executarPrograma(int a, int b){
+                        ...
+                        sem return
+                        ...
+                    }
+                
+                Sem entradas e sem saídas:
+
+                    void executarPrograma(){
+                        ...
+                        sem return
+                        ...
+                    }
+
+
+    OBSERVAÇÕES IMPORTANTES SOBRE MÉTODOS:
+
+Quando usamos métodos no java devemos tomar cuidado com algumas coisas:
+
+    # NÃO REPETIR MÉTODOS COM A MESMA IDENTIDADE:
+
+        A identidade de um método consiste no nome do método e na sua assinatura:
+        
+            nomeDoMetodo(int a, int b)
+
+        Até podemos repetir métodos que possuam o mesmo nome e métodos que possuam a mesma assinatura com um 
+        nome diferente. Mas jamais podemos repetir métodos que possuam a mesma assinatura e o mesmo nome.
+
+        Repetições Permitida:
+
+            somar(int a, int b)
+
+            somar(double a, int b)
+
+            somar(int a, int b, int c)
+
+        Repetições Não Permitidas:
+
+            somar(int a, int b)
+
+            somar(int c, int d)
+

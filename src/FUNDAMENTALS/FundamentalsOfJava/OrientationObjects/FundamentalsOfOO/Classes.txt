@@ -1,0 +1,126 @@
+    CLASSES
+
+No Java, quando falamos de classes, existem alguns conceitos que temos que adotar, por exeplo:
+
+
+    # CLASSES DEVEM TER O MESMO NOME DO ARQUIVO:
+
+        Sempre que o java procura por uma classe, ele vai referenciar ao mesmo nome do arquivo,
+        isso não é uma obrigação em todos os casos, é mais para quando temos classes públicas,
+        mas, por convenção sempre usamos o mesmo nome da classe para o nome do arquivo.
+
+
+    # CLASSES DEVEM COMEÇAR COM LETRA MAIÚSCULA:
+
+        Isso é uma convenção, mas já está muito bem estabelecida no mundo java e deve ser 
+        seguida, não seguí-la demonstra falta de profissionalismo.
+
+
+    # NEM TODAS AS CLASSES PRECISAM DE UM MÉTODO MAIN:
+
+        O método main é apenas um método de entrada para um programa em java. É por através 
+        dele que um programa é executado e as demais classes serão chamadas uma à partir da
+        outra.
+
+    
+    # CLASSES ESTÃO FORTEMENTE RELACIONADAS COM ORIENTAÇÃO A OBJETOS:
+
+        Todas as classes irão possuir "atributos" e "comportamentos", esses atributos e 
+        comportamentos deverão ser representados por "dados" (atributos) e métodos 
+        (comportamentos). O próprio método "main" é um comportamento da Classe, ele se 
+        refere ao comportamento de "dar start a um programa".
+
+        Por isso que em java sempre atribuímos a uma Classe o papel de ser uma entidade 
+        dentro de um programa, como exemplos de entidades, podemos pegar as entidades que
+        existem dentro de uma escola: Professor, Aluno, Diretor, Zelador e etc, cada um
+        desses poderia ser uma Classe dentro de um programa.
+
+        Note que cada entidade tem seus atributos e comportamentos:
+            # Atributos de um Professor: Matéria que dá aula, sexo, peso, idade e etc;
+            # Comportamentos: Dar aula, Tirar férias, Substituir outro professor e etc;
+
+        Ou seja, usamos as Classes dentro de um programa para separar uma entidade e seus
+        comportamentos de outra entidade que possua outros atributos e outros 
+        comportamentos.
+
+        Esse conceito de "atributos" e "comportamentos" de uma classe são chamados de 
+        "mebros de uma classe". Se alguém lhe perguntar: "Quais são os membros de uma 
+        classe?" Você poderá responder: "São os atributos e comportamentos que ela possuí.
+
+    
+    # CLASSES POSSUEM RELACIOMENTOS COM OUTRAS CLASSES:
+
+        Quando falamos de Relacionamentos, nos referimos a forma como uma Classe se 
+        relaciona com as demais classes. Por exemplo:
+
+            Digamos que temos uma classe "Professor" e uma classe "Aluno".
+            Qual seria um possível relacionamento entre eles?
+
+            Um professor pode ter vários alunos;
+            Um aluno pode ter vários professores;
+
+        Esses relacionamentos podem ser representados dentro do Java e podem ser 
+        controlados também, para que não saiam do controle.
+
+
+    # UMA CLASSE PODE DEFINIR UM TIPO (ESTRUTURA DE DADOS):
+
+        Nós podemos usar uma classe para definir um tipo de dado, ou uma estrutura de 
+        dados específica da nossa aplicação. Assim como o Java já possuí tipos de dados 
+        embutidos na linguagem que podem usar seus próprios métodos e formas de ser 
+        operados. Podemos usar uma classe para criar o nosso próprio tipo de dado, com
+        métodos e maneiras próprias de operar sobre esses dados.
+
+
+    # UMA CLASSE REPRESENTA UMA ABSTRAÇÃO:
+
+        O que seria uma abstração? A palavra abstração no paradigma de uma classe vem
+        exatamente do verbo "abstrair" (tirar), ou seja, tirar: dados e comportamentos 
+        de algo que existe na vida real para que seja recriado no mundo digital.
+
+        Ou seja, você está abstraíndo todas as informações a respeito de um objeto do
+        mundo real e recriando esse objeto no mundo digital.
+
+        Um copo de ter uma abstração, uma loja pode ser uma abstração, um método de 
+        trabalho pode ser uma abstração.
+
+    
+    # OS DADOS GERADOS NUMA CLASSE SÃO OBJETOS DAQUELA CLASSE:
+
+        Como os dados gerados em uma classe sempre referenciam ao molde daquela Classe, 
+        podemos dizer que todos os dados gerados à partir de uma classe são "objetos" ou 
+        "instâncias" daquela classe.
+
+        Pois todos os objetos vaão ter as mesmas referências de atributos e métodos, 
+        portanto, todas pertencem ao mesmo molde, ou seja, a mesma Classe.
+
+
+    # MÉTODOS DE UMA CLASSE:
+
+        Todas classes possuem membros dentro dela que podem representar de forma genérica
+        atributos e comportamentos de daquela classe. Podemos enumerar basicamente 4 
+        tipos de membros para uma classe, nem sempre uma classe irá ter todos os 4 
+        membros, mas classes maiores em programas maiores geralmente fazem uso dos 6 
+        tipos de membros que vamos falar:
+
+            # atributos (variáveis e constantes):
+                Os atributos são os dados de uma classe, eles podem variar entre 
+                atributos variáveis: que são atributos que podem mudar o seu 
+                valor dependendo da operação que for feita no decorrer da 
+                execução do código. E atributos constantes, atributos que não
+                mudam, não importa a execução que for feita no código;
+
+            # Método Construtor:
+                Um método (ou métodos) usados especificamente para construir 
+                novos objetos para àquela classe. Podemos ter apenas 1 único
+                método construtor, ou podemos ter vários, isso vai depender de 
+                classe para classe;
+
+            # Métodos:
+                Comportamentos próprios daquela classe. Podemos ter vários 
+                tipos de métodos dentro de uma classe.
+
+            # Classes:
+                Uma classe também pode ter outras classes dentro dela. Ou 
+                classes que ela referencia, mesmo que não estejam própriamente
+                dentro dela.

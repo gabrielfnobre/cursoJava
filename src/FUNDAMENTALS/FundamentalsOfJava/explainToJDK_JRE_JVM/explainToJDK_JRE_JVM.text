@@ -1,0 +1,49 @@
+EXPLICAÇÃO SOBRE JDK, JRE E JVM
+
+JDK, JRE e JVM são três componentes principais do ambiente de execução do Java, cada um com sua própria função e usabilidade.
+
+                                                           JDK
+
+A sigla JDK significa "Java Development Kit" e é uma coleção de ferramentas para desenvolver aplicativos Java. O JDK inclui o 
+compilador Java (javac), que transforma o código-fonte Java em bytecode que pode ser executado na JVM, bem como ferramentas de 
+depuração, documentação e outras utilidades necessárias para o desenvolvimento de aplicativos Java. O JDK também inclui o JRE.
+
+
+                                                           JRE
+
+A sigla JRE significa "Java Runtime Environment" e é o ambiente de execução padrão para aplicativos Java. O JRE inclui a JVM, 
+que é o motor que interpreta o bytecode Java e executa o código em tempo de execução. O JRE também inclui bibliotecas padrão e 
+outros componentes necessários para executar aplicativos Java.
+
+
+                                                           JVM
+
+A sigla JVM significa "Java Virtual Machine" e é a camada intermediária entre o código-fonte Java e o sistema operacional. A 
+JVM é responsável por executar o bytecode Java, que é um conjunto de instruções que a JVM interpreta e executa. A JVM é uma 
+parte crítica do ambiente de execução Java, pois permite que os aplicativos Java sejam executados em qualquer plataforma que 
+suporte a JVM.
+
+
+JUNTANDO TUDO
+
+Resumindo, o JDK é necessário para o desenvolvimento de aplicativos Java, o JRE é necessário para executar aplicativos Java e a 
+JVM é a camada intermediária que permite que o código Java seja executado em qualquer plataforma.
+
+                                                    JDK (Desenvolvedor usa para criar o programa gerando o bytecode)
+                                                     |
+                                                     |
+                                                     |
+                                                    JVM (Lê o bytecode e o interpreta para qualquer Sistema Operacional)
+                                                     |
+                                                     |
+                            _________________________|_________________________
+                            |                        |                         |
+                            |                        |                         |
+                            |                        |                         |
+                           JRE                      JRE                       JRE    (Interpretador único para cada
+                          Linux                   Windows                     Mac        Sistema Operacional)
+
+Em termos de usabilidade, os desenvolvedores Java precisam do JDK para compilar e testar seus aplicativos Java e produzir 
+arquivos executáveis que possam ser implantados em um ambiente JRE. Os usuários finais que desejam executar aplicativos Java em 
+seus computadores precisam do JRE instalado em seus sistemas. A JVM é a camada intermediária que torna possível a execução do 
+código Java em qualquer plataforma.

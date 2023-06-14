@@ -1,0 +1,6 @@
+CONVENÇÕES
+
+Veja algumas convenções a serem seguidas pela comunidade do Java:
+
+Class: Sempre em CamelCase e sempre começando com a letra maiúscula. Jamais começando com 
+        números ou acentos, sempre com letras em Camel Case e sempre maiúsculas no começo.

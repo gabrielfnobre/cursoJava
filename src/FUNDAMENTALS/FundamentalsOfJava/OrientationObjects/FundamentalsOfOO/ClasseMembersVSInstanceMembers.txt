@@ -1,0 +1,79 @@
+    MEMBROS DE CLASSE vs MEMBROS DE INSTÂNCIA
+
+No java existe um diferença entre "Membros de Classe" e "Membros de Instância".
+
+MEMBROS DE CLASSE: São elementos definidos como estáticos dentro de uma classe, (tanto 
+atributos quanto métodos), isso quer dizer que eles podem ser compartilhados com as 
+instâncias geradas à partir daquela classe, mas, eles sempre terão o mesmo valor para 
+todas as instâncias, por que o valor de um elemento estático é armazenado em 1 único 
+espaço de memória que será compartilhado entre todas as instâncias de uma classe.
+
+MEMBROS DE INSTÂNCIA: São membros também gerados dentro da classe, mas, como não são 
+declarados como estáticos, toda vez que criarmos uma nova instância ela irá armazenar um 
+espaço de memória específico para cada instância gerada para referenciar àquele membro.
+
+Abaixo temos uma ilustração de como o membro estático é armazenado no mesmo espaço de memória 
+para todas as instâncias que houverem daquela classe, enquanto os membros de instância são 
+armazenados em espaços de memória diferentes...
+                                                    ______________________         _________
+                                                   |                      |   --->|_________|
+                                                   |     INSTANCIA 01     |   |    |_|_|_|_|
+                                               ____|_____static member    |   |        |
+                                              |    |        member1_______|___|        |
+ ______________________                       |    |        member2_______|_|     membros da
+|                      |                      |    |______________________|    instância 01 são
+|        CLASSE        |         _________    |                              armazenados em outro
+|    static member-----|------->|_________|<---                                espaço de memória 
+|       member1        |         |_|_|_|_|    |                                                 
+|       member2        |             |        |     ______________________         _________
+|______________________|             |        |    |                      |   --->|_________|
+                                     |        |    |     INSTANCIA 02     |   |    |_|_|_|_|
+                                     |        |____|_____static member    |   |        |
+                                     |             |        member1_______|___|        |
+                               membroEstatico      |        member2_______|_|     membros da
+                            armazenado no mesmo    |______________________|    instância 02 são
+                            espaço de Memória                                 armazenados em outro 
+                                                                               espaço de memória 
+
+    
+    QUANDO USAR MEMBROS ESTÁTICOS? 
+
+Para economizar espaço de memória referente a valores imutáveis. Como por exemplo o número de 
+PI, o valor de PI é um número que nunca muda, podemos usar um atributo estático dentro de uma 
+classe para sempre referenciar ao número de PI no mesmo espaço de memória, em vez de recriar 
+o número de PI para todas as instâncias desnecessariamente, evitanto desperdício de memória.
+
+Falando a respeito de métodos, é sábio usar métodos estáticos em métodos que não precisam 
+necessariamente interagir com os valores de uma determinada instância. Por exemplo, um métodos
+sacar() para uma conta de banco não seria uma boa escolha para ser um método estático, visto 
+que esse seria um método que precisa interagir com um valor específico de uma instância. 
+Seria muito melhor ter esse método dentro da própria instância.
+
+Agora se estamos falando de métodos utilitários como "conversão de unidades" ou "formatação de
+strings", métodos factory pattern para criação de diferentes tipos de objetos, métodos 
+auxiliares como métodos que realizam leitura e escrita de arquivos e etc, esses sim seriam
+bons candidatos a serem métodos estáticos, pois não precisam interagir com o estado dos 
+objetos.
+
+
+    QUANDO USAR MEMBROS DE INSTANCIA?
+
+Membros de instância são ideais para valores que devem referenciar à apenas 1 objeto, como por
+exemplo o preço de um produto. Geralmente são valores que mudam dependendo do objeto e da 
+situação.
+
+Isso incluí também os métodos, se tivermos um método que vá interagir diretamente com os 
+valores de um objeto, não seria prático ter um método estático fazendo isso. Seria muito melhor
+que ele fosse um método de instância.
+
+    COMO REFERENCIAR?
+
+Para referenciar membros estáticos, basta usarmos o nome da própria classe seguido pelo nome 
+do membro:
+
+    ClasseName.StaticMemberName
+
+Já para membros de instância, primeiramente é necessário criar uma instância da classe para 
+depois referenciar o membro de instância dela, dessa forma:
+
+    nomeDaInstancia.instanceMember
