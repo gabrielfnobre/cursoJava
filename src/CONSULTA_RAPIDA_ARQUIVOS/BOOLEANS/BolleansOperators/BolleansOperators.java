@@ -1,4 +1,4 @@
-package BOOLEANS.BolleansOperators;
+package CONSULTA_RAPIDA_ARQUIVOS.BOOLEANS.BolleansOperators;
 //BOOLEANS OPERATORS
 
 //In the Java there are also booleans operators, to test with two or more different situations.

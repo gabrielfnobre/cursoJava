@@ -1,3 +1,5 @@
+package CONSULTA_RAPIDA_ARQUIVOS.CONTINUE;
+
 //  CONTINUE:
 
 /*  O continue é uma estrutura de controle usada para pular uma iteração de
