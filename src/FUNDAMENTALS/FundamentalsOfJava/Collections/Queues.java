@@ -87,54 +87,75 @@ package FUNDAMENTALS.FundamentalsOfJava.Collections;
         Veja abaixo exemplos de como declaramos esses métodos...
  */
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class Queues {
     @SuppressWarnings({"rawtypes", "unchecked"})
     public static void main(String[] args){
 
-        //EX01
+        //Ex01
         System.out.println("Ex01:");
-        ArrayList newList = new ArrayList();
-        newList.add("nome");
-        newList.add(2);
-        newList.add(true);
-        newList.add(4.5);
+        Queue fila = new LinkedList<>();
 
-        System.out.println(newList);
+        fila.add("first");
+        fila.add("second");
+        fila.add("third");
+        fila.add("forth");
+        fila.add("fifth");
+
+        System.out.println(fila);
         System.out.println();
 
-        //EX02
+
+        //Ex02
         System.out.println("Ex02:");
-        for(int i = 0; i < newList.size(); i++){
-            System.out.println(newList.get(i));
+        ArrayBlockingQueue filaDe5 = new ArrayBlockingQueue(5);
+
+        filaDe5.add(1);
+        filaDe5.offer(2);
+        filaDe5.add(3);
+        filaDe5.offer(4);
+        filaDe5.add(5);
+
+        System.out.println(filaDe5.offer(6));
+
+        try {
+            filaDe5.add(6);
+        } catch (IllegalStateException e){
+            System.out.println("O tamanho máximo foi atingido!");
         }
+
+        System.out.println(filaDe5);
         System.out.println();
 
-        //EX03
+
+        //Ex03
         System.out.println("Ex03:");
-        List<String> nomes = new ArrayList<>();
-        nomes.add("Gabriel");
-        nomes.add("Graziela");
-        nomes.add("Dario");
 
-        for(String name: nomes){
-            System.out.println(name + " Nobre");
+        System.out.println(fila.peek());
+        System.out.println(fila.element());
+        System.out.println();
+
+        Queue filaVazia = new LinkedList();
+        System.out.println(filaVazia.peek());
+
+        try {
+            filaVazia.element();
+        } catch (NoSuchElementException e){
+            System.out.println("Não tem nada nessa fila");
         }
         System.out.println();
 
-        //EX04
-        System.out.println("Ex04:");
-        System.out.println(newList.size());
-        System.out.println();
 
-        //EX05
-        System.out.println("Ex05:");
-        newList.remove(0);
-        System.out.println(newList);
-        System.out.println();
+        //Ex04
+        System.out.println("Ex04");
 
+        System.out.println(fila.size());
+        System.poll();
 
     }
 
