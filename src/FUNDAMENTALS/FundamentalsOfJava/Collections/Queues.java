@@ -2,7 +2,7 @@ package FUNDAMENTALS.FundamentalsOfJava.Collections;
 
 //  QUEUES:
 
-/*  A "queue", do inglês fila, é uma estrutura de dados dentro dos collections onde é possível armazenar
+/*  A "queue", do inglês "fila", é uma estrutura de dados dentro dos collections onde é possível armazenar
     valores como se eles estivem numa queue, onde o primeiro a entrar deverá ser o primeiro a sair (FIFO)
     veja algumas características das queues:
 
@@ -152,10 +152,20 @@ public class Queues {
 
 
         //Ex04
-        System.out.println("Ex04");
+        System.out.println("Ex04:");
 
         System.out.println(fila.size());
-        System.poll();
+        System.out.println(fila.poll());
+        System.out.println(fila.remove());
+        System.out.println(fila.poll());
+        System.out.println(fila.remove());
+        System.out.println(fila.poll());
+        System.out.println(fila.poll());
+        try{
+            fila.remove();
+        } catch (NoSuchElementException e) {
+            System.out.println("A fila acabou e uma exceção foi retornada no remove()");
+        }
 
     }
 
