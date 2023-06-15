@@ -187,6 +187,18 @@ public class Queues {
             System.out.println("A fila acabou e uma exceção foi retornada no remove()");
         }
 
+        System.out.println();
+
+
+        //Ex06
+        System.out.println("Ex06:");
+
+        for(String num: filaHomo){
+            System.out.println("Grade: " + num);
+        }
+
+        System.out.println();
+
         /*  Ex01 -  Neste exemplo estamos mostrando com 2 exemplos simples fazer declarações de queues, estamos
                     usando tanto o método de declarar e só depois adicionar valores usando o método add(), como
                     também o método de declarar e já inicializar uma queue usando a classe "Array" e o método
@@ -224,6 +236,10 @@ public class Queues {
 
                         # remove() - remove o primeiro elemento da fila e retorna o nome desse elemento,
                                     se a fila estiver vazia ele retorna uma excessão;
+        */
+
+        /*  Ex06 - Neste exemplo quisemos apenas mostrar que é possível iterar sobre queues homogêneas
+                   usando generics;
         */
 
     }
