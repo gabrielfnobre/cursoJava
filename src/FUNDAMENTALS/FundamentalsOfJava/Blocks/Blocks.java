@@ -1,3 +1,5 @@
+package FUNDAMENTALS.FundamentalsOfJava.Blocks;
+
 //BLOCOS
 
 /*  Outra parte importante dos códigos Java são os blocos.
