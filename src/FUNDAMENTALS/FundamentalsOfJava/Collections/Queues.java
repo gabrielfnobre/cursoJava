@@ -3,8 +3,11 @@ package FUNDAMENTALS.FundamentalsOfJava.Collections;
 //  QUEUES:
 
 /*  A "queue", do inglês "fila", é uma estrutura de dados dentro dos collections onde é possível armazenar
-    valores como se eles estivem numa queue, onde o primeiro a entrar deverá ser o primeiro a sair (FIFO)
-    veja algumas características das queues:
+    valores como se eles estivem numa fila, onde o primeiro a entrar deverá ser o primeiro a sair (FIFO).
+    A queue foi criada justamente para operar primeiramene sobre os itens que foram colocados primeiro,
+    suas operações de inserção e inclusão sempre serão feitas sobre os itens que foram colocados antes.
+
+    Veja algumas características das queues:
 
         # Heterogênea ou Homogênea:
             Podemos armazenar valores que possuem tanto o mesmo tipo de dado como valores com tipos de
@@ -59,23 +62,22 @@ package FUNDAMENTALS.FundamentalsOfJava.Collections;
             uso em cenários de produtor-consumidor. Ela fornece sincronização adequada para garantir a segurança
             nas operações de acesso simultâneo por várias threads.
 
-    Embora a list seja uma estrutura heterogênea, a boa prática de programação pede que sempre usemos o mesmo tipo
-    de dado, por isso foi desenvolvido o Generics, usando o Generics conseguimos fazer com que até mesmo uma list
+    Embora a queue seja uma estrutura heterogênea, a boa prática de programação pede que sempre usemos o mesmo tipo
+    de dado, por isso foi desenvolvido o Generics, usando o Generics conseguimos fazer com que até mesmo uma queue
     só aceite valores que sejam do mesmo tipo.
 
     Veja como usamos o Generics:
 
-        List<String> nomeDaVariavel = new ArrayList<>();
+        Queue<String> nomeDaVariavel = new LinkedList<>();
 
         Explicando:
-                    - Veja que chamamos pela classe "List" em seguida, dentro das tags nós colocamos tipo de dado
-                        que nós queremos que o nosso list tenha. Essas tags são o generics, elas querem dizer ao
-                        java que essa list só vai aceitar valores Strings, se tentássemos colocar valores Double ou
+                    - Veja que chamamos pela classe "Queue" em seguida, dentro das tags nós colocamos tipo de dado
+                        que nós queremos que a nossa queue tenha. Essas tags são o generics, elas querem dizer ao
+                        java que essa queue só vai aceitar valores Strings, se tentássemos colocar valores Double ou
                         Integer teríamos um erro de compilação;
 
                         OBSERVAÇÕES: Por estar se tratando de uma collection o generics só aceitará valores do
-                        tipo objeto como wrappers, objects e arrays. Aqui usamos uma List para declarar a variável
-                        mas poderíamos ter usado um ArrayList ou LinkedList.
+                        tipo objeto como wrappers, objects e arrays.
 
                     - Note também que quando instanciamos a variável usamos também um generics no método
                         construtor, note que esse generics em especial está vazio, isso acontece por que o nosso
@@ -88,9 +90,7 @@ package FUNDAMENTALS.FundamentalsOfJava.Collections;
  */
 
 
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 
 public class Queues {
@@ -108,11 +108,31 @@ public class Queues {
         fila.add("fifth");
 
         System.out.println(fila);
+
+        Queue filaInicializada = new LinkedList<>(Arrays.asList("one", 1, true, 5.4));
+        System.out.println(filaInicializada);
+
         System.out.println();
 
 
         //Ex02
         System.out.println("Ex02:");
+        Queue filaHetero = new LinkedList<>();
+        Queue<String> filaHomo = new LinkedList<>();
+
+        filaHetero.add("first");
+        filaHetero.add(3);
+
+        filaHomo.add("first");
+        filaHomo.add("second");
+
+        System.out.println(filaHetero);
+        System.out.println(filaHomo);
+        System.out.println();
+
+
+        //Ex03
+        System.out.println("Ex03:");
         ArrayBlockingQueue filaDe5 = new ArrayBlockingQueue(5);
 
         filaDe5.add(1);
@@ -133,8 +153,8 @@ public class Queues {
         System.out.println();
 
 
-        //Ex03
-        System.out.println("Ex03:");
+        //Ex04
+        System.out.println("Ex04:");
 
         System.out.println(fila.peek());
         System.out.println(fila.element());
@@ -151,8 +171,8 @@ public class Queues {
         System.out.println();
 
 
-        //Ex04
-        System.out.println("Ex04:");
+        //Ex05
+        System.out.println("Ex05:");
 
         System.out.println(fila.size());
         System.out.println(fila.poll());
@@ -166,6 +186,45 @@ public class Queues {
         } catch (NoSuchElementException e) {
             System.out.println("A fila acabou e uma exceção foi retornada no remove()");
         }
+
+        /*  Ex01 -  Neste exemplo estamos mostrando com 2 exemplos simples fazer declarações de queues, estamos
+                    usando tanto o método de declarar e só depois adicionar valores usando o método add(), como
+                    também o método de declarar e já inicializar uma queue usando a classe "Array" e o método
+                    "asList()";
+        */
+
+        /*  Ex02 -  Este exemplo serve para mostrar que é possível usar Queues tanto Heterogêneas como
+                    Homogêneas. Note que para gerar queues heterogêneas bastou usarmos o generics;
+        */
+
+        /*  Ex03 -  Aqui estamos mostrando como gerar uma lista com tamanho pré-definido usando a classe
+                    ArrayBlockingQueue, note que delimitamos o tamanho máximo dessa queue a 5 valores, se
+                    passar de 5 valores ela não aceitará valores novos. Note que para incluir valores
+                    usamos "add" e "offer", os 2 métodos são de inclusão, mas eles têm comportamentos
+                    diferentes:
+                        # add() - se chegar a capacidade máxima da fila esse método irá retornar uma
+                                    excessão;
+
+                        # offer() - se chegar a capacidade máxima da fila esse método irá retornar null;
+        */
+
+        /*  Ex04 -  Aqui estamos mostrando 2 métodos usados para enxergar a fila, os métodos "peek" e
+                    "element", ambos irão retornar o 1º elemento de uma fila. Mas eles possuem
+                    comportamentos diferentes caso a fila esteja vazia:
+                        # peek() - irá retornar "null" se não houver nada na fila;
+
+                        # element() - irá retornar uma excessão se não tiver nada na fila;
+        */
+
+        /*  Ex05 - Neste exemplo estamos mostrando alguns métodos usuais de queue:
+                        # size() - retorna o tamanho da fila;
+
+                        # poll() - remove o primeiro elemento da fila e retorna o nome desse elemento,
+                                    se a fila estiver vazia ele retorna "null";
+
+                        # remove() - remove o primeiro elemento da fila e retorna o nome desse elemento,
+                                    se a fila estiver vazia ele retorna uma excessão;
+        */
 
     }
 
