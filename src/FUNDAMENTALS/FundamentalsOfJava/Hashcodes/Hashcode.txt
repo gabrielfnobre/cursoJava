@@ -1,0 +1,63 @@
+//  HASHCODE
+
+O "hashCode()" é um metodo de Object que têm o objetivo de identificar instâncias de uma classe por
+através de um número identificador único gerado por um hash de 32 bits. Ele é usado principalmente
+em HashSets, HashMaps e Hashtable.
+
+O método Hash é muito mais eficiente que o equals quando o assunto é fazer comparações entre dois
+objetos, pois, enquanto o equals será operado sobre todo o conjunto de instâncias de uma classe, o
+HashCode será o operado somente sobre os valores que possuírem um determinado identificador,
+agilizando a busca por valores e otimizando a comparação.
+
+Por exemplo, imagine que procuramos por uma string que tenha somente 4 caracteres e esteja
+reservada num determinado atributo, podemos passar esse atributo dentro do HashCode, ele irá
+prontamente identificar que o atributo contém apenas 4 caracteres e irá comparar o valor hash dele
+somente com as demais instâncias que tiverem só 4 caracteres neste mesmo atributo.
+
+Ou seja, é muito mais prático, eficiente e seguro usar HashCode para fazer comparações entre
+instâncias!
+
+Por padrão, toda classe já vêm com um método hashCode implementado, assim como vêm com o método
+equals já implementado (pois ambos são herdados de Object). Porém, se fizermos um override no
+equals, temos que fazer um override no hashCode, isso o tornará mais seguro.
+
+OBSERVAÇÕES: O hashCode sempre anda com conjunto com o equals, pois na classe que onde faremos a
+instancialização do objeto não iremos chamar pelo método "hashCode" diretamente, em vez disso,
+sempre chamaremos pelo "equals", é o "equals" que se encarregará de chamar o "hashCode" por
+debaixo dos panos fazendo as comparações hash entre as instâncias.
+
+    COMO IMPLEMENTAR?
+
+    @override
+    public int hashCode(){
+        final int prime = 31;
+        int result = 17;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        return result;
+    }
+
+    @override
+    public boolean equals(Object obj) {
+        User other = (User) obj;
+        if(other instanceof User){
+            boolean isNameEqual = other.name.equals(this.name);
+            boolean isEmailEqual = other.email.equals(this.email);
+            return isNameEqual && isEmailEqual ? true : false;
+        } else {
+            return false;
+        }
+    }
+
+    Explicação:
+
+        - Note no código acima que temos uma implementação override de hashCode, note que
+            implementamos uma ternário que medirá um número primo "31" e um número
+            qualquer para resultado "17", esse número multiplicado pelo hashCode do
+            atributo name deverá gerar um número único - número Hash - que servirá de
+            identificador do elemento;
+
+        - Note mais abaixo que também estamos usando um override para equals, esse override
+            faz uma comparação entre os valores dos atributos "name" e "email" para averiguar
+            se uma instância é igual a outra. Lembre-se que sem o equals aqui a implementação
+            de hashCode não seria muito necessária, geralmente implementamos hashCode por
+            causa do equals;

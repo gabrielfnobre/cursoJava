@@ -1,3 +1,5 @@
+package FUNDAMENTALS.FundamentalsOfJava.EqualsThe;
+
 public class User {
     String name;
     String email;

@@ -56,7 +56,7 @@ diferentes de construtores: "Construtor Padrão" e "Construtor Parametrizado"...
 
     # CONSTRUTOR PADRÃO: 
         Um construtor já implícito da linguagem, quando criamos uma classe, mesmo que não tenhamos 
-        criado explícitamente um contrutor, por padrão o java entende que a classe precisa de um 
+        criado explícitamente um construtor, por padrão o java entende que a classe precisa de um
         método construtor e gera ele automaticamente. 
         Por padrão, esse método não possuí nenhum algoritmo dentro dele, mas podemos gerar um 
         construtor padrão explícitamente e colocar dentro dele qualquer algoritmo que quisermos. A 

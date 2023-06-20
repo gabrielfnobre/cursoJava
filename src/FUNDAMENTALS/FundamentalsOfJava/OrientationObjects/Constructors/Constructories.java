@@ -32,11 +32,12 @@ public class Constructories {
         return String.format("Product: %s\nPrice: %.2f\nPrice with discont: %s", name, price, priceWithDiscont());
     }
 
-    /*  Ex01 - Nesse exemplo temos um construtor padrão, poderíamos ter colocado alguma programação nele se quiséssemos;
+    /*  Ex01 - Nesse exemplo temos um construtor padrão, poderíamos ter colocado alguma programação
+                nele se quiséssemos;
      */
 
-    /*  Ex02 - Aqui temos um construtor parametrizado, note que podemos ter mais construtores como esse se quiséssemos,
-                bastaria para isso que eles tivessem assinaturas diferentes;
+    /*  Ex02 - Aqui temos um construtor parametrizado, note que podemos ter mais construtores como
+                esse se quiséssemos, bastaria para isso que eles tivessem assinaturas diferentes;
      */
 
 }

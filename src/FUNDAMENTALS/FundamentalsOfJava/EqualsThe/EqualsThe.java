@@ -1,3 +1,5 @@
+package FUNDAMENTALS.FundamentalsOfJava.EqualsThe;
+
 //  O EQUALS:
 
 /*  O equals é um método pré-implementado do Java que têm como missão fazer comparação 
