@@ -1,0 +1,41 @@
+    COMPOSIÇÃO
+
+A Composição é uma das implementações dos relacionamentos de POO que chamamos de 1 para muitos (1-*), onde uma Classe Principal é composta pelos objetos de outras classes, isso gera uma dependência entre a Classe Principal e as Classes Componentes.
+
+Podemos exemplificar a Composição com o exemplo de um carro. O carro é composto por vários componentes separados que trazem funcionalidades ao carro, por exemplo: motor, sistema de direção, sistema elétrico, sistema de combustível e etc. Podemos imaginar a nossa aplicação como o carro e as classes como componentes do nosso carro.
+
+Como funciona a Composição na prática?
+
+A Composição é quanto temos uma classe que contém 1 ou mais objetos (instâncias) de outras classes, geralmente esses objetos são instanciados dentro da Classe Principal e são referenciados por ela. Por isso, dizemos que a Composição é a “relação da morte”, pois se a Classe Principal que é responsável por gerar instâncias nas outras classes não existir as demais classes perdem toda a utilidade, afinal, para que classes que: não podemos gerar objetos e não podemos usar seus métodos?
+
+    public class MainClass {
+        ComponentClass cc;
+
+        MainClass(){
+            this.cc = new ComponentClass();
+        }
+
+        void accessAttributeComponent(){
+            return cc.attribute;
+        }
+
+    }
+
+    Explicando:
+
+        - Perceba que temos uma classe principal a "MainClass", note que dentro dessa classe estamos
+            instanciando os objetos da classe "ComponentClass", isso é uma composição, pois estamos
+            gerando os objetos de uma classe diretamente dentro de outra classe. Se MainClass deixar
+            de existir, ComponentClass se torna inútil;
+
+        - Veja que, como os objetos de uma classe dependente estão acessíveis, seus métodos e
+            atributos também se tornam acessíveis também;
+
+OBSERVAÇÕES:
+
+    - Podemos ter várias Composições dentro de um programa. Até uma Classe Principal pode também
+        virar uma composição de uma classe dependente;
+
+    - Composições não garantem a segurança do seu código, por exemplo, nada impede que um
+        atributo de uma classe dependente sejam modificado pela Classe Principal, pois os dados
+        não estão encapsulados
