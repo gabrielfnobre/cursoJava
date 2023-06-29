@@ -7,7 +7,7 @@ public class Composition {
 
         //Ex01:
         System.out.println("\nEx01:");
-        Car car1 = new Car();
+        Car car1 = new Car("Toyota");
 
         System.out.println("O carro está ligado? - " + car1.isOn());
         System.out.println();
@@ -60,6 +60,12 @@ public class Composition {
 
         car1.turnOff();
         car1.acelerate();
+        System.out.println();
+
+
+        //Ex06:
+        System.out.println("Ex06:");
+        System.out.println(car1.MOTOR.CAR.MOTOR.CAR.MOTOR.CAR.MOTOR.CAR.NAME);
 
     }
 
@@ -87,6 +93,12 @@ public class Composition {
 
     /*  Ex05 -  Por fim, neste exemplo, nós desligamos o carro usando a função "turnOff". Note
                 que ao tentar acelerar o carro não conseguimos por que o carro está desligado;
+    */
+
+    /*  Ex06 -  Aqui temos a comprovação do relacionamento 1 para 1. Veja que podemos chamar
+                ambas as classes Motor e Car, que uma vai chamar a outra, e no final quando
+                chamamos pela constante "NAME", ela vai imprimir justamente o nome do carro
+                referente áquele objeto;
     */
 
 }
