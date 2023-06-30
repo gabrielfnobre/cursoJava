@@ -1,0 +1,25 @@
+    RELACIONAMENTOS
+
+    Em Java, relacionamentos referem-se à forma como as classes interagem entre si. Eles descrevem as associações e dependências entre objetos. Existem vários tipos de relacionamentos comumente usados em programação orientada a objetos. Vou explicar os principais:
+
+        Associação:
+
+    A associação é um relacionamento entre duas classes em que uma classe usa a outra como parte de sua própria estrutura. Elas estão conectadas, mas não dependem uma da outra para existir. Por exemplo, uma classe "Carro" pode estar associada a uma classe "Motor". A classe "Carro" tem um objeto da classe "Motor" como uma de suas propriedades.
+
+        Agregação:
+
+    A agregação é uma forma específica de associação em que uma classe contém outra classe como parte de sua estrutura, mas a classe contida pode existir independentemente da classe que a contém. Por exemplo, uma classe "Escola" pode ter uma agregação com uma classe "Aluno". Os alunos podem existir independentemente da escola.
+
+        Composição:
+
+    A composição também é uma forma de associação em que uma classe contém outra classe como parte de sua estrutura. A diferença entre agregação e composição é que, na composição, a classe contida não pode existir sem a classe que a contém. Por exemplo, uma classe "Casa" tem uma composição com uma classe "Cômodo". Os cômodos só existem dentro da casa e não podem existir independentemente.
+
+        Herança:
+
+    A herança é um relacionamento em que uma classe (subclasse) herda características e comportamentos de outra classe (superclasse). A subclasse é uma especialização da superclasse e pode adicionar ou modificar seu próprio comportamento. Por exemplo, uma classe "Cachorro" pode herdar da classe "Animal". O cachorro é um tipo específico de animal.
+
+        Dependência:
+
+    A dependência ocorre quando uma classe usa outra classe temporariamente, geralmente em um método, mas não há uma relação estrutural entre elas. Por exemplo, uma classe "Pedido" pode depender de uma classe "Cliente" para obter informações relevantes, mas o cliente não faz parte da estrutura do pedido.
+
+    Esses são apenas alguns dos principais tipos de relacionamentos em Java. Cada um deles tem seus próprios métodos e abordagens específicas para implementação. É importante entender esses relacionamentos para projetar e modelar corretamente suas classes e garantir a correta interação entre objetos no seu programa Java.
