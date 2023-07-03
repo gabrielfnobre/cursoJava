@@ -1,6 +1,6 @@
 package FUNDAMENTALS.FundamentalsOfJava.Relationships.OneToOne;
 
-// UM PARA UM:
+// UM PARA UM (1:1):
 
 /*  O relacionamento 1 para 1 é o relacionamento onde:
  *
