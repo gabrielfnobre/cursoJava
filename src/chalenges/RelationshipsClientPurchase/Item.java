@@ -1,6 +1,7 @@
 package chalenges.RelationshipsClientPurchase;
-
 import java.util.ArrayList;
+
+//Relacionamento N:1 com Purchase e 1:N com Product...
 
 public class Item {
     Purchase purchase;
@@ -14,4 +15,5 @@ public class Item {
         numberItem = number;
         number++;
     }
+
 }

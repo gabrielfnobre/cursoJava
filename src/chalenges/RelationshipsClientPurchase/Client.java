@@ -1,5 +1,7 @@
 package chalenges.RelationshipsClientPurchase;
 
+//Relacionamento 1:N com a classe Purchase...
+
 import java.util.ArrayList;
 
 public class Client {
@@ -29,5 +31,16 @@ public class Client {
         }
         System.out.println("Total: R$" + String.format("%.2f", total));
     }
+
+    void myItems(){
+        for(Purchase purchase: purchases){
+            for(Item item: purchase.items){
+                for(Product product: item.products){
+                System.out.println(product.name + "- R$" + String.format("%.2f",product.price));
+                }
+            }
+        }
+    }
+
 
 }

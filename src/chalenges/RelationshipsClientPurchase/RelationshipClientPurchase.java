@@ -1,5 +1,7 @@
 package chalenges.RelationshipsClientPurchase;
 
+//Esse exercício foi feito para treinar relacionamentos entre classes...
+
 public class RelationshipClientPurchase {
     public static void main(String[] args) {
 
@@ -32,6 +34,8 @@ public class RelationshipClientPurchase {
         System.out.println(prod3.item.numberItem);
         System.out.println(prod3.item.purchase.numberPurchase);
         System.out.println(prod3.item.purchase.client.name);
+
+        c2.myItems();
 
     }
 }

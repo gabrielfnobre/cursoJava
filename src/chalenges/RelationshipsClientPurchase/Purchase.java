@@ -1,6 +1,8 @@
 package chalenges.RelationshipsClientPurchase;
 import java.util.ArrayList;
 
+//Relacionamento N:1 com Client e 1:N com Item...
+
 public class Purchase {
     Client client;
     static int number = 1;
