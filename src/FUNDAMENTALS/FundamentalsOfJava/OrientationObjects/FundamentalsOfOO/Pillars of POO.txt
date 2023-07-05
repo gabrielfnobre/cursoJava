@@ -1,0 +1,132 @@
+    PILARES DA POO
+
+A Programação Orientada a Objetos (POO) é uma abordagem de programação onde é possível modelar o mundo real dentro do
+mundo computacional.
+
+Partindo do pré suposto de que se algo existe automáticamente ele possuí características o tornam essa coisa palpável,
+visível ou perceptível, essa coisa poderá ser identificada como um "objeto". Ou seja, pode ser compreendida por
+através de "atributos" e "comportamentos" (Métodos).
+
+Por exemplo:
+    Carro:
+        Atributos:
+            Cor;
+            Peso;
+            Modelo;
+
+        Comportamentos:
+            Andar;
+            Ligar;
+            Frear;
+
+Até o vento pode ser modelado como objeto:
+    Vento:
+        Atributos:
+            Leve;
+            Invisível;
+            Temperatura;
+
+        Comportamentos:
+            Ventar;
+            Parar;
+            AumentarForca;
+            DiminuirForca;
+
+Com base nisso, podemos por assim dizer "digitalizar" objetos do mundo real por através da POO.
+
+
+    COMO NASCEU A POO?
+
+A POO é uma abordagem da programação que se desenvolveu ao longo do tempo por meio de contribuições de diversos
+pesquisadores e profissionais da área da computação. Não é possível atribuir a criação da POO a uma única pessoa
+específica, pois foi resultado de um esforço coletivo e evolução gradual ao longo das décadas.
+
+No entanto, há alguns nomes importantes que contribuíram significativamente para o desenvolvimento e popularização da
+POO. Alguns desses nomes são:
+
+Alan Kay:
+Ele é conhecido por ter cunhado o termo "Orientação a Objetos" e foi um dos primeiros defensores desse paradigma. Kay
+desenvolveu a linguagem de programação Smalltalk na década de 1970, que foi uma das primeiras linguagens a implementar
+completamente os conceitos de POO.
+
+Ole-Johan Dahl e Kristen Nygaard:
+Esses pesquisadores noruegueses desenvolveram a linguagem de programação Simula na década de 1960. A Simula foi a
+primeira linguagem a introduzir conceitos de classes e objetos, e é considerada uma das precursoras da POO.
+
+Grady Booch, Ivar Jacobson e James Rumbaugh:
+Esses três pesquisadores são conhecidos por desenvolverem a Unified Modeling Language (UML) na década de 1990. A UML é
+uma linguagem visual para modelagem de sistemas orientados a objetos e se tornou amplamente adotada na indústria de
+desenvolvimento de software.
+
+Esses são apenas alguns dos nomes influentes na história da POO. A evolução da POO foi resultado de contribuições de
+muitos outros pesquisadores, desenvolvedores e acadêmicos ao longo dos anos. É importante reconhecer que a POO é uma
+abordagem que evoluiu gradualmente e foi influenciada por diversas ideias e conceitos da ciência da computação.
+
+
+    QUAIS SÃO OS PILARES DA POO?
+
+A POO é baseada em alguns pilares que definem esse paradigma e que tornam possível trazer elementos do mundo real para
+o digital, esses pilares são: encapsulamento, herança, polimorfismo e abstração. Esses pilares fornecem um conjunto de
+princípios e técnicas para projetar e organizar o código de forma eficiente e modular.
+Vamos explorar cada um deles em detalhes:
+
+1. ENCAPSULAMENTO:
+    Traz a ideia de que nem tudo a respeito de um objeto precisa estar exposto para quem não precisa saber os detalhes
+    internos. Por exemplo, um carro, o usuário final não precisa ter acesso ao motor, sistema elétrico, hidráulico e
+    etc. Da mesma forma, um desenvolvedor pode ocultar o acesso a atributos e métodos que não seja necessário
+    acessar por através de uma interface.
+
+   - O encapsulamento é um conceito que permite agrupar dados (atributos) e comportamentos (métodos) relacionados em
+        uma única unidade chamada de classe.
+   - Uma classe define a estrutura e o comportamento de um objeto. Ela encapsula os detalhes internos e fornece uma
+        interface externa para interagir com o objeto.
+   - Através do encapsulamento, os detalhes internos da implementação são ocultados, permitindo que o objeto controle o
+        acesso aos seus atributos e métodos.
+   - O encapsulamento promove a segurança e a consistência dos dados, além de permitir a reutilização do código e
+        facilitar a manutenção.
+
+2. HERANÇA:
+    Traz a ideia de que aspectos de um objeto podem ser herdados por outro objeto, isso ajuda no reaproveitamento de
+    de código. Por exemplo uma classe "Animal" pode ter atributos como "cabeça" e "boca". Mas podemos ter outras
+    classes como "Mamifero" e "Aquatico", essas classes podem muito bem herdar os atributos de "Animal",
+    reaproveitando alguns de seus atributos e métodos.
+
+   - A herança é um mecanismo que permite criar uma nova classe (subclasse) a partir de uma classe existente
+        (superclasse), compartilhando seus atributos e métodos.
+   - A subclasse herda os membros da superclasse e pode adicionar novos membros ou modificar o comportamento existente.
+   - A herança permite criar uma hierarquia de classes, em que classes mais específicas herdam características de
+        classes mais genéricas.
+   - Esse conceito promove a reutilização de código, evita a duplicação e facilita a organização e extensão do sistema.
+
+3. POLIMORFISMO:
+    Traz a ideia de que um método de uma Super Classe possa ser reaproveitado em uma sub classe, porém, esse método
+    poderá se adequar as características específicas para o objeto da sub classe. Por exemplo, Temos uma Super Classe
+    "Animal" que possuí um método "comer", esse método aceita todo tipo de alimento "carne", "frutas" e "ortaliças",
+    porém, temos asociadas a essa Super Classe as sub classes "Carnivoro" e "Herbivoro", obviamente elas não podem
+    aceitar todos os tipos de alimentos que o método "comer" da Super Classe aceita. Será necessário então fazer um
+    polimorfismo (mudar o comportamento) do método "comer" para que ele se adeque ás sub classes. Isso é polimorfismo.
+
+   - O polimorfismo permite que objetos de classes diferentes sejam tratados de maneira uniforme, permitindo a
+        substituição de objetos de uma classe por objetos de suas subclasses.
+   - O polimorfismo permite que um mesmo método seja implementado de maneira diferente em diferentes classes.
+   - Quando um método é chamado em um objeto, o comportamento específico associado à classe do objeto é executado.
+   - Esse conceito promove a flexibilidade, modularidade e extensibilidade do código, permitindo lidar com objetos de
+        forma genérica e adaptável.
+
+4. ABSTRAÇÃO:
+    A abstração é a primeira etapa do POO. Ela não é uma implementação de fato, está mais para um princípio, o
+    princípio de "saber abstrair atributos e comportamentos de um objeto do mundo real para o código".
+
+   - A abstração é o processo de identificar as características essenciais de um objeto do mundo real e modelá-las em
+        uma classe.
+   - A abstração permite criar representações simplificadas dos objetos, focando nos aspectos relevantes para o sistema
+        em questão.
+   - Ela envolve a definição de atributos e métodos que representam o estado e o comportamento do objeto,
+        respectivamente.
+   - Através da abstração, podemos criar modelos de objetos que podem ser utilizados para criar instâncias (objetos)
+        concretos no sistema.
+
+Esses pilares da POO são interdependentes e trabalham em conjunto para criar um código modular, organizado e
+reutilizável. Eles permitem a modelagem de sistemas complexos, com objetos interagindo entre si de maneira estruturada
+e eficiente. A compreensão e aplicação adequada desses conceitos são essenciais para o desenvolvimento de software
+orientado a objetos de qualidade.

@@ -1,0 +1,269 @@
+    PARADIGMAS DE PROGRAMAÇÃO AO LONGO DO TEMPO
+
+
+Desde de que o surgimento e a popularização das linguagens de programação começou, desenvolvedores (tanto de programas
+como de linguages) viram a necessidade de se organizar e estruturar o código de programação para que ele seja mais
+inteligível, fácil de escrever e de dar manutenção.
+
+Veja a história dos paradigmas de programação ao longo do tempo, veja como a programação mudou com o passar do tempo,
+exemplos de como o código é aplicado e quais as vantagens e desvantagens de se usar (ou de não usar) um ou outro
+paradigma de programação:
+
+
+    1. COMANDO "GOTO" (meados de 1960):
+
+O comando "goto" foi introduzido nas primeiras linguagens de programação, como o Fortran, em meados dos anos 1950.
+Ele permitia desvios incondicionais no fluxo de execução do programa, direcionando-o para uma linha específica de
+código. Esses desvios eram feitos por através da palavra reservada "goto" (go to - vá para), daí o nome do
+paradigma.
+
+Embora tenha sido amplamente usado no início, seu uso excessivo levou a problemas de legibilidade e
+manutenção de código, pois ele gerava o que ficou conhecido como "programação macarrônica", pois, sistemas grandes
+tinham que fazer vários desvios ao longo do código - que por sua vez era muito extenso. Os desenvolvedores perdiam
+horas para resolver problemas simples devido aos vários desvios, sem falar da manutenção.
+
+Veja um exemplo usando Fortran:
+
+    program ExemploGoto
+        integer :: i
+
+        do i = 1, 5
+            if (i == 3) then
+                goto 10                 //desvio para a label "10"
+            endif
+            print *, "Valor de i:", i
+        end do
+
+    10  continue
+        print *, "Fim do programa"
+
+    end program ExemploGoto
+
+
+    2. PARADIGMA ESTRUTURADO (meados de 1960):
+
+O paradigma estruturado foi proposto como uma alternativa ao comando "goto" e ganhou destaque na década de 1960. Nesse
+paradigma, a programação é baseada em estruturas de controle bem definidas, como sequência, seleção e repetição. As
+linguagens de programação como o Algol e o Pascal foram importantes nesse desenvolvimento, incentivando a escrita de
+código mais organizado, legível e fácil de ser mantido.
+
+Veja um exemplo também em C:
+
+    #include <stdio.h>
+
+    int main() {
+        int i, soma = 0;
+
+        for (i = 1; i <= 5; i++) {
+            soma += i;
+        }
+
+        printf("A soma dos números de 1 a 5 é: %d\n", soma);
+
+        return 0;
+    }
+
+
+    3. PARADIGMA PROCEDURAL (meados de 1950):
+
+O paradigma procedural, também conhecido como programação procedural, se desenvolveu dentro do paradigma estruturado.
+Ele enfatiza a divisão do código em procedimentos (funções), que são blocos de código independentes que podem ser
+chamados e reutilizados em diferentes partes do programa. A linguagem C e o Fortran 77 são exemplos de linguagens de
+programação que seguem esse paradigma.
+
+Essa é uma linguagem focada em dados globais (dados que são acessíveis a todo o código), pois o foco dela é modificar
+os dados para que se adequem a vontade do usuário e retornem o valor desejado, não importa o quanto os dados tiveram
+que mudar durante esse processo.
+
+Quando olhamos o paradigma procedural e o funcional parece que eles são o mesmo, mas não são. O funcional trabalha de
+forma totalmente diferente, o seu foco é trabalhar com dados homogêneos mantendo-os assim durante todo o procedimento,
+para isso ele utiliza dados de escopo invés de dados globais. Enquanto o procedural não se importa com a homogênuidade
+dos dados, trabalhando com dados globais.
+
+Veja esse exemplo usando a linguagem Python:
+
+    def calcular_media(notas):
+        soma = 0
+        quantidade = len(notas)
+
+        for nota in notas:
+            soma += nota
+
+        media = soma / quantidade
+
+        return media
+
+
+    def exibir_resultado(media):
+        if media >= 7:
+            print("Aprovado!")
+        else:
+            print("Reprovado.")
+
+
+    notas_aluno = [8, 7, 6, 9, 9.5]
+    media_aluno = calcular_media(notas_aluno)
+    exibir_resultado(media_aluno)
+
+Esse exemplo ilustra o paradigma procedural, em que o programa é dividido em uma sequência de procedimentos (funções)
+que executam tarefas específicas. Cada função tem um propósito bem definido e é chamada quando necessário para realizar
+sua função específica. O fluxo do programa é determinado pela chamada de funções em uma ordem lógica, sem a necessidade
+de estruturas de controle complexas ou desvios incondicionais.
+
+
+    4. PARADIGMA FUNCIONAL (1950):
+
+O paradigma funcional tem suas raízes na teoria dos cálculos lambda, desenvolvida por Alonzo Church na década de 1930.
+No entanto, o paradigma funcional como o conhecemos hoje começou a se desenvolver na década de 1950. Nesse paradigma,
+a programação é baseada em funções matemáticas puras, onde não há efeitos colaterais e as funções sempre retornam o
+mesmo resultado para os mesmos argumentos. Entre as primeiras linguagens funcionais tivemos o Lisp, Scheme, Haskell e
+Erlang.
+
+É muito fácil confundir o paradigma funcional com o paradigma procedural, pois ambos utilizam funções independentes
+dentro do código para executar tarefas específicas. O que diferencia um do outro é forma como os dados são tratados,
+pois o paradigma funcional opta por executar e usar dados homegêneos, se resgardando do benefício dos escopos de
+blocos dentro das suas funções para não mudar o tipo de dado que os dados têm.
+
+Enquanto o procedural procura executar dados globais (dados acessíveis a todo o código de programação), onde ele
+praticamente é obrigado a mudar o tipo de dado a cada "procedure" (função) em que o dado é executado.
+
+Veja um exemplo usando a linguagem javascript:
+
+    const numbers = [1, 2, 3, 4, 5];
+
+    const squaredNumbers = numbers.map((num) => num ** 2);
+
+    const sum = squaredNumbers.reduce((acc, num) => acc + num, 0);
+
+    console.log("Quadrados dos números:", squaredNumbers);
+    console.log("Soma dos quadrados:", sum);
+
+Neste exemplo, o paradigma funcional é aplicado utilizando funções de ordem superior como map e reduce, que tratam as
+funções como cidadãos de primeira classe. O código é estruturado em torno de expressões funcionais, evitando o uso de
+variáveis mutáveis e efeitos colaterais. Isso permite que os dados sejam transformados de forma declarativa e imutável.
+
+
+    5. PARADIGMA DA PROGRAMAÇÃO ORIENTADA A OBJETOS (meados de 1960):
+
+O paradigma orientado a objetos (POO) surgiu na década de 1960, mas se popularizou nas décadas de 1980 e 1990. Ele
+introduziu uma abordagem baseada em objetos, que são entidades que possuem atributos (dados) e métodos (ações). O POO
+promove a encapsulação, herança e polimorfismo, permitindo a reutilização de código e a modelagem de problemas do mundo
+real. Quando a POO começou a ser utilizada, as principais linguagens que a utilizavam eram a Simula, Smalltalk, C++ e
+Java.
+
+O que é importante entender no caso do POO é que as funções (procedures) deixam de ser tratados como cidadãos de
+primeira classe, e quem passam a ser tratados como cidadãos de primeira classe são os "dados" ou "objetos". Eles que
+ganham os holofotes, pois onde antes tinhamos que fazer:
+
+    function facaIsso(dadoVaiAqui) //Note que é o dado que se submete a função!!!
+
+Agora fazemos isso:
+
+    dadoVaiAqui.facaIsso() //Note que é o dado que chama o método (função), sem o dado (objeto) não teria método!!!
+
+Veja um exemplo usando a linguagem Java:
+
+    class Retangulo {
+        private double comprimento;
+        private double largura;
+
+        public Retangulo(double comprimento, double largura) {
+            this.comprimento = comprimento;
+            this.largura = largura;
+        }
+
+        public double calcularArea() {
+            return comprimento * largura;
+        }
+
+        public double calcularPerimetro() {
+            return 2 * (comprimento + largura);
+        }
+    }
+
+Nesse exemplo podemos ver que um objeto precisa ser instanciado sobre uma classe para os métodos possam existir, é o
+objeto que diz (por através da classe) quais métodos deverão existir para áquele objeto.
+
+
+    6. PARADIGMA LÓGICO (meados de 1970):
+
+O paradigma lógico se baseia na lógica matemática e na resolução de problemas por meio de regras e fatos lógicos. A
+linguagem Prolog, desenvolvida na década de 1970, é um exemplo famoso de uma linguagem de programação baseada no
+paradigma lógico. Nesse paradigma, o programa é construído com base em relações lógicas e inferências, permitindo a
+resolução de problemas complexos de forma declarativa.
+
+Veja um exemplo usando a linguagem Prolog:
+
+    pai(joao, maria).
+    pai(joao, pedro).
+    pai(pedro, ana).
+    pai(pedro, carlos).
+
+    avo(X, Z) :- pai(X, Y), pai(Y, Z).
+
+    ?- avo(joao, ana).
+
+Nesse exemplo, temos uma base de fatos representando relações familiares. Cada fato é definido usando o predicado pai,
+que relaciona um pai com um filho. Por exemplo, o fato pai(joao, maria) indica que João é pai de Maria.
+
+Em seguida, temos uma regra definida usando o predicado avo. Essa regra verifica se há uma relação de avô entre dois
+indivíduos, X e Z. Ela é definida em termos de dois predicados pai: o pai de X é o pai de Y, e o pai de Y é o pai de Z.
+
+No programa principal, usamos a consulta ?- avo(joao, ana) para verificar se João é avô de Ana. O sistema Prolog irá
+inferir a resposta com base nos fatos e regras definidos. Se a resposta for true, significa que João é avô de Ana.
+
+Nesse exemplo, o paradigma lógico é aplicado por meio do uso de fatos e regras para representar relacionamentos e
+definir relações lógicas entre eles. O programa é executado por meio de consultas que unificam os termos com os fatos e
+regras definidos, permitindo a inferência lógica com base nas relações estabelecidas.
+
+O paradigma lógico enfatiza a lógica formal e a dedução lógica, onde o programa é construído em termos de fatos e
+regras, e a execução ocorre por meio de unificação e busca de respostas logicamente válidas.
+
+
+    7. PARADIGMA ORIENTADO A EVENTOS (meados de 1990):
+
+O paradigma orientado a eventos é comumente usado em interfaces gráficas de usuário e sistemas distribuídos. Surgiu com
+a necessidade de lidar com interações não lineares e eventos em tempo real. Ele se concentra na detecção e manipulação
+de eventos, como cliques de mouse, teclas pressionadas, chegada de dados em uma rede, entre outros.
+
+Nesse paradigma, o programa reage a eventos específicos por meio de callbacks, que são funções ou métodos executados
+quando um evento ocorre. As linguagens e bibliotecas voltadas para interfaces gráficas de usuário, como Java Swing e
+JavaScript com o framework React, são exemplos de implementações do paradigma orientado a eventos.
+
+Veja um exemplo usando a linguagem Javascript:
+
+    // Criação de um objeto
+    let botao = document.querySelector('#meuBotao');
+
+    // Definição de uma função de callback para o evento 'click'
+    function onClickBotao() {
+      console.log('Botão clicado!');
+    }
+
+    // Registro do evento 'click' e associação da função de callback
+    botao.addEventListener('click', onClickBotao);
+
+Nesse exemplo, temos um botão representado por um elemento HTML com o ID meuBotao. Utilizamos a função querySelector
+para obter referência a esse elemento e armazenamos no objeto botao.
+
+Em seguida, definimos uma função de callback chamada onClickBotao que será executada quando o evento de clique (click)
+for acionado no botão. Nesse caso, a função apenas imprime uma mensagem no console.
+
+Por fim, registramos o evento click no objeto botao usando o método addEventListener, passando o nome do evento e a
+função de callback onClickBotao.
+
+Dessa forma, quando o botão for clicado, a função de callback será executada, demonstrando o uso do paradigma orientado
+a eventos. Esse paradigma baseia-se na ideia de que o fluxo de execução do programa é impulsionado pelos eventos que
+ocorrem no sistema, e as ações são disparadas em resposta a esses eventos.
+
+    OBSERVAÇÕES:
+
+É importante mencionar que os paradigmas de programação não surgiram em uma ordem linear e exclusiva. Eles foram se
+desenvolvendo ao longo do tempo, influenciados por pesquisas acadêmicas, avanços tecnológicos e necessidades práticas
+da programação. Além disso, muitas linguagens de programação modernas são multiparadigma, o que significa que permitem
+a combinação e uso de elementos de diferentes paradigmas.
+
+Cada paradigma de programação tem seus pontos fortes e fracos, e a escolha do paradigma adequado depende do contexto,
+dos requisitos do projeto e das preferências dos programadores. Além dos paradigmas mencionados, existem outros
+paradigmas e abordagens, como programação concorrente, programação distribuída, entre outros, que surgiram para
+enfrentar desafios específicos da computação.
