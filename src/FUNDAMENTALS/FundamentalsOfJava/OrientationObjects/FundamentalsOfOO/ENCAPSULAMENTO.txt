@@ -1,0 +1,95 @@
+    ENCAPSULAMENTO
+
+O encapsulmento é o princípio da Orientação a Objeto que parte do conceito de que nem tudo o que existe dentro de um
+objeto precisa ser mostrado para um usuário, de que muita coisa não deve estar visível, ou seja, deve estar encapsulado.
+
+Vamos dar um exemplo:
+
+    Imagine um carro e seu usuário final. Tudo o que um motorista precisa de saber a respeito de um carro são os seus
+    controles básicos: volante, marcha e pedais. Ele não precisa entender como o motor, o sistema de embreagem ou a
+    combustão funciona, isso não é importante para ele. Por isso, os mecânicos que progetaram o carro esconderam essas
+    informações dele.
+
+Da mesma forma, não é necessário ter informação sobre tudo o que acontece num pacote, sobre todas as suas classes, seus
+atributos ou seus métodos, o que muitas vezes precisamos saber a respeito de um pacote é apenas algumas de suas classes
+e de seus métodos para que possamos operar nossos objetos.
+
+Por isso a POO utiliza bem o conceito de encapsulamento, por isso traz uma série de vantagens para a implementação de
+um código, por exemplo:
+
+             public CLASSE A                                         public CLASSE B
+           __________________                                      __________________
+          | |----------------|-----------------------|            |                  |
+          | |  public Attr1--|------------------|    |------------|----public Attr1  |
+          | |                |                  |                 |                  |
+          | |->public Meth1<---------------|    |-----------------|-->public Meth1-| |
+          |                  |             |                      |                | |
+          | |->public Meth2 <--------------|----------------------|---public Meth2 | |
+          |_|________________|             |                      |________________|_|
+            |------------------------------|---------------------------------------|
+
+        No modelo acima temos o que chamamos de "relaciomento pouco encapsulamento" entre as classes A e B.
+        Temos 2 classes públicas que podem ser acessadas por através de qualquer classe do nosso programa.
+        Além disso, essas classes possuem 1 atributo e 2 Métodos, note que eles estão totalmente abertos um
+        ao outro, mas não apenas isso, as linhas com setas mostram as dependências entre eles, ou seja, o
+        Método 1 da classe B precisa do atributo1 da classe A para existir, ao mesmo tempo os métodos 1 e 2
+        da classe A estão dependentes do método 1 da classe B, isso sem falar as outras dependências.
+
+        Além disso, imagine o tanto de bugs que podem ser gerados, o código ficaria totalmente confuso e
+        desorganizado, a probabilidade de dar problemas é gritante.
+
+        Agora imagine dar manutenção no método 1 da classe B. Horrível não é? Teríamos que mexer em todos
+        os atributos e métodos entre as classes. Agora veja a diferença de um código encapsulado logo
+        abaixo:
+
+                CLASSE A                                             public CLASSE B
+           __________________                                      ____________________
+          |                  |                                    |                    |
+          |  private Attr1   |                                    |    private Attr1   |
+          |                  |                                    |                    |
+          |      Meth1-------|--------------------|               |    public Meth1<-| |
+          |                  |                    |               |                  | |
+          |  private Meth2   |                    |---------------|--> private Meth2-| |
+          |__________________|                                    |____________________|
+
+        Veja a diferença no relacionamento entre as classes acima. Esse é um relacionamento que chamamos
+        de "fortemente encapsulado", onde temos primeiramente uma classe acessível somente dentro do
+        pacote (Classe A) e outra publica (Classe B) para poder ser usada no programa. Veja também que
+        temos atributos das classes privados (acessíveis somente pela classe), e somente 1 método
+        package e outro público, pois um método precisará ser acessível fora do pacote e outro dentro
+        do pacote.
+
+        Veja que até temos dependência entre o método 2 da classe B e o método 1 da classe A, mas é só
+        uma, é muito mais fácil dar manutenção!
+
+        Sem falar a redução da chance de dar bugs, pois como os atributos e métodos estão fortemente
+        encapsulados, é muito menos provável que um bug aconteça.
+
+
+    PALAVRAS RESERVADAS DO ENCAPSULAMENTO:
+
+No encapsulamento usamos algumas palavras reservadas para gerar níveis de encapsulamento diferentes entre as nossas
+classes, atributos e métodos. Quem vai definir esses níveis é o desenvolvedor, por isso o desenvolvedor tem que estar
+muito certo sobre os níveis que precisa para os objetos que está utilizando. Veja quais são os níveis:
+
+    private:
+            É o maior nível de encapsulamento. Nesse nível o elemento só é acessível a partir da classe. Ele não pode
+            ser nem mesmo herdado. Se uma classe estiver "private" isso significa que tudo o que tiver dentro daquela
+            classe só é acessível por ela mesma, nem mesmo a classe é acessível a outra classe que estiver no pacote.
+
+    package(default):
+            O package é o nível de encapsulamento padrão do java, isso significa que ao criarmos nossas classes,
+            atributos e métodos sem declarar o nível de encapsulamento que eles terão, automaticamente o nível package
+            será atribuído sobre eles.
+            O package é o nível onde os elementos são acessíveis dentro de todo o pacote, qualquer classe dentro do
+            pacote poderá acessar. Mas classes que estiverem fora do pacote não poderão acessar os atributos e métodos
+            que forem package.
+
+    protected:
+            O protected é o nível de encapsulamento por herança. Isso quer dizer que se uma Super Classe tiver
+            elementos no nível protected, somente as sub classes dela poderão acessar a esses elementos.
+
+    public:
+            O public é o nível mais fraco do encapsulamento, ele permite que os elementos sejam acessíveis por
+            qualquer parte do programa, até mesmo classes de outros pacotes poderão acessar elementos de nível public.
+
