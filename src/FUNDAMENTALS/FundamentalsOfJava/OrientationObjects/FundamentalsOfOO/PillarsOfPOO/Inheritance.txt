@@ -1,0 +1,91 @@
+    HERANÇA
+
+A herança é um conceito fundamental na Programação Orientada a Objetos (POO) que permite que uma classe herde
+características e comportamentos de outra classe. A classe que é herdada é chamada de "Classe Base", "Super Classe" ou
+"Classe Pai", enquanto a classe que herda é chamada de "Classe Derivada", "Sub Classe" ou "Classe Filha".
+
+A herança permite que as Classes Filhas compartilhem e estendam os atributos e métodos da Classe Pai, promovendo a
+reutilização de código e a organização hierárquica das classes.
+
+Quando uma classe é declarada como Filha de outra classe, ela herda todos os atributos e métodos da Classe Pai,
+exceto aqueles que são marcados como privados (ou seja, acessíveis somente dentro da própria Classe Pai). Os atributos
+e métodos herdados podem ser usados diretamente pela Classe Filha, com ou sem a necessidade de redefini-los
+(sobrescrevê-los).
+
+
+    HERANÇA VS COMPOSIÇÃO
+
+Você deve ter percebido que Herança e composição são bem parecidos, afinal uma composição permite que você possua
+atributos e métodos de objetos que são passados para uma classe compositora. Porém, os princípios que regem uma
+composição são bem diferentes dos princípios que geram uma herança.
+
+A herança parte do princípio "É UM" - onde o objeto de uma Classe Pai pode ser comparado a um objeto de uma Classe
+Filha com o tipo de relação de que o objeto da Classe Filha "É" considerado como sendo também um objeto da Classe Pai.
+Por exemplo: Animal, poderia ser uma Super Classe, enquanto Mamífero e Réptil poderiam ser Sub Classes e Animal, pois,
+embora um mamífero e um réptil sejam diferentes em suas características, os dois "SÃO" ("É UM") animais.
+
+Já a composição parte do princípio "TEM UM" - onde o objeto de uma classe Compositora "TEM" um objeto de uma Classe
+Composta. Por exemplo: Um objeto Carro "TEM" um objeto Porta, assim como um objeto Porta "TEM" um objeto Vidro.
+
+Pensar dessa forma nos ajuda a modelar bem o nosso código antes de sair implementado uma Herança ou composição sem
+analisar em qual modelo de implementação seria mais adequado para o que desejamos fazer.
+
+Em geral é preferível usar composições, por que? Por que as composições não precisam de relacionamentos muito
+profundos e complexos de manter como as heranças. Herança é só para quando temos realmente um relacionamento do tipo
+"É UM", e ainda assim, quanto mais simples for esse relacionamento é melhor, relacionamentos de Herança muito compridos
+e profundos dão muito trabalho.
+
+
+    CARACTERÍSTICAS DE HERANÇA NO JAVA
+
+No java temos que levar em consideração algumas características importantes ao modelar nossas heranças, algumas são
+específicas do java, outras são características gerais que podemos implementar em todas as linguagens. Seguem algumas
+destas características:
+
+    # NÃO PERMITE HERANÇA MULTÍPLA:
+
+        Algumas linguagens permitem que uma Classe Filha herde elementos de 2 ou mais Classes Pai diferentes.
+        O java não permite isso, o que não é necessariamente uma coisa ruim, afinal heranças multiplas podem
+        tornar um código muito complicado de manter. No java uma Classe Filha só pode herdar elementos de 1
+        única Classe Pai.
+
+        Agora, uma Classe Pai pode ter várias Classes Filhas.
+
+
+    # CONCEITO DE MODELAGEM PARA CLASSES PAI E FILHAS:
+
+        Quando vamos modelar uma Classe Pai e uma Classe Filha, temos que ter o seguinte conceito:
+        - Classe Pai: Deve ser sempre "+ genérica", pois Classes Pai muito específicas geralmente tem que
+                        acabar sendo remodeladas várias vezes até ficarem genéricas, só para se adaptar
+                        as Classes Filhas, então, desde o ínicio, não se preocupe em criar Classes Pai
+                        cheias de implementações;
+
+        - Classe Filha: Devem ser "+ específicas", por se tratarem de implementações mais exatas e estarem
+                        nas raízes mais baixas da hierarquia, elas precisarão ser mais específicas. Porém,
+                        se soubermos que teremos Classes Filhas das nossas Classes Filhas, temos que
+                        também tomar o cuidado de não ser específicos demais. Em geral a regra é: Quanto
+                        mais baixo na hierarquia, mais específico, quanto mais alto, mais genérico;
+
+
+    # NEM SEMPRE O QUE PARECE SER UMA HERANÇA REALMENTE É UMA HERANÇA:
+
+        Por exemplo, analise os objetos abaixo:
+
+            1º Capitão
+            2ª Tenente
+            3ª Sargento
+            4ª Cabo
+            5ª Soldado
+
+        Parece ser uma herança não é? Talvez um desenvolvedor se sinta tentado a pensar que aquilo que um
+        soldado faz, um cabo faz e assim por diante até chegar no capitão. Mas na verdade não, cada um tem
+        trabalho diferente e não herda muitas características um do outro.
+
+        Nesse caso o relacionamento mais indicado seria o de composião, pois:
+
+            1º Capitão TEM Tenentes ao seu comando...
+            2ª Tenente TEM Sargentos ao seu comando...
+            3ª Sargento TEM Cabos ao seu comando...
+            4ª Cabo TEM Soldados ao seu comando...
+            5ª Soldado TEM que obedecer kkkkkkk
+
