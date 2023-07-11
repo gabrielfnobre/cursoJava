@@ -1,0 +1,48 @@
+    POLIMORFISMO
+
+
+A definição de polimorfismo é quando possuímos duas ou mais variantes de um mesmo tipo de qualquer
+coisa. Por exemplo, quando uma égua dá cria a 2 filhotes, onde um nasce com o pêlo de tom marrom,
+enquanto o outro nasce com o pêlo no tom branco. Ambos são cavalos, porém um é diferente do outro,
+isso pode ser chamado de polimorfismo.
+
+O polimorfismo é um dos pilares da programação orientada a objetos (POO) que permite que um objeto
+possa ser referenciado de várias formas diferentes, assumindo comportamentos distintos dependendo
+do contexto em que é utilizado.
+
+O polimorfismo permite que objetos de diferentes classes sejam tratados de maneira uniforme por
+meio de uma interface comum. Isso significa que um objeto pode ser tratado como um objeto de sua
+classe específica ou como um objeto de uma classe pai mais genérica.
+
+O polimorfismo pode ser classificado em dois tipos: "Polimorfismo Dinâmico" e "Polimorfismo
+Estático".
+
+
+    POLIMORFISMO DINÂMICO
+
+O polimorfismo dinâmico também é conhecido como polimorfismo de tempo de execução. Pois ele
+ocorre quando temos um objeto de uma subclasse que herda os métodos e atributos da super classe.
+
+Por exemplo, suponha que você tenha uma classe Animal como classe pai e as classes Dog e Cat como subclasses. Se essas subclasses sobrescrevem um método chamado "fazerBarulho()", ao chamar o método "fazerBarulho()" em um objeto do tipo Animal, o método adequado será determinado em tempo de execução com base no tipo real do objeto (se é um objeto Dog ou Cat).
+
+Polimorfismo Estático:
+O polimorfismo estático, também conhecido como polimorfismo de tempo de compilação, ocorre quando a escolha do método adequado é feita em tempo de compilação, com base no tipo declarado da variável. Nesse caso, o compilador determina qual método será chamado.
+
+O polimorfismo estático é alcançado através da sobrecarga de métodos e operadores. A sobrecarga ocorre quando uma classe possui vários métodos com o mesmo nome, mas diferentes parâmetros. Durante a compilação, o compilador decide qual método será chamado com base nos argumentos passados.
+
+Por exemplo, suponha que você tenha uma classe chamada Calculadora que tenha dois métodos chamados "somar()": um que aceita dois inteiros como argumentos e outro que aceita dois números de ponto flutuante. Durante a compilação, o compilador decidirá qual método "somar()" será chamado com base nos tipos dos argumentos passados.
+
+Resumindo, a diferença entre polimorfismo dinâmico e estático está no momento em que a resolução do método polimórfico é feita. No polimorfismo dinâmico, a escolha do método é feita em tempo de execução, com base no tipo real do objeto. No polimorfismo estático, a escolha do método é feita em tempo de compilação, com base no tipo declarado da variável e nos argumentos fornecidos.
+
+Geralmente alcançamos o polimorfismo através de dois mecanismos: Herança e Interfaces.
+
+Na herança,
+uma classe filha herda os métodos e propriedades de uma classe pai, e assim pode substituir ou sobrescrever esses métodos para implementar seu próprio comportamento. Dessa forma, objetos de diferentes classes derivadas da mesma classe pai podem ser tratados de forma polimórfica.
+
+Por outro lado, as interfaces definem um conjunto de métodos que uma classe deve implementar. Uma classe pode implementar várias interfaces diferentes, o que permite que ela seja tratada como um objeto de qualquer uma dessas interfaces. Isso também permite que classes não relacionadas pela hierarquia de herança sejam tratadas de forma polimórfica.
+
+A principal vantagem do polimorfismo é a flexibilidade e extensibilidade do código. Ele facilita a reutilização de código, tornando possível criar métodos e algoritmos genéricos que possam lidar com diferentes tipos de objetos. Isso torna o código mais modular, fácil de manter e de estender, pois novas classes podem ser adicionadas sem afetar o código existente.
+
+Em resumo, o polimorfismo em POO permite tratar objetos de diferentes classes de forma uniforme, através de uma interface comum, possibilitando a criação de código flexível e extensível.
+
+
