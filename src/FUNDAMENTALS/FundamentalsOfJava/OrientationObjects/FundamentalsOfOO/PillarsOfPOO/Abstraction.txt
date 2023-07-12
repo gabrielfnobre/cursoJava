@@ -1,0 +1,72 @@
+
+    ABSTRAÇÃO
+
+
+A abstração é um dos princípios fundamentais da POO. Ela permite que você modele objetos do mundo real como entidades
+independentes, com características e comportamentos específicos. A ideia principal da abstração é simplificar a
+complexidade do mundo real, destacando apenas os aspectos relevantes para o sistema que está sendo desenvolvido.
+
+Na POO, você cria classes para representar esses objetos. Uma classe é uma estrutura que define as propriedades (ou
+atributos) e os comportamentos (ou métodos) que um objeto desse tipo pode ter. Por exemplo, se estivéssemos modelando
+um sistema bancário, poderíamos ter uma classe chamada "ContaBancaria".
+
+Os atributos da classe "ContaBancaria" podem incluir coisas como "numeroDaConta", "saldo" e "titular". Os métodos, por
+sua vez, podem incluir ações como "depositar", "sacar" e "verificarSaldo". Esses atributos e métodos encapsulam o
+comportamento e as características relevantes para uma conta bancária.
+
+                                     _______________________
+                                    |                       |
+                                    |     ContaBancaria     |
+                                    |                       |
+                                    |     numeroDaConta     |
+                                    |     saldo             |
+                                    |     titular           |
+                                    |                       |
+                                    |     depositar()       |
+                                    |                       |
+                                    |     sacar()           |
+                                    |                       |
+                                    |    verificarSaldo()   |
+                                    |_______________________|
+
+
+A abstração nos permite criar essa classe "ContaBancaria" sem se preocupar com detalhes internos de implementação. Em
+vez disso, focamos nas informações essenciais que uma conta bancária precisa ter e nas operações que podem ser
+realizadas nela. Isso nos permite criar objetos a partir dessa classe, representando contas bancárias reais no nosso
+sistema.
+
+Além disso, a abstração também nos permite estabelecer relações de herança entre classes. Isso significa que podemos
+criar classes mais específicas, chamadas subclasses, que herdam os atributos e métodos de uma classe mais geral,
+chamada superclasse. Por exemplo, poderíamos ter subclasses como "ContaCorrente" e "ContaPoupanca", que herdam os
+atributos e métodos da classe "ContaBancaria".
+
+                                     _______________________
+                                    |                       |
+                                    |     ContaBancaria     |
+                                    |                       |
+                                    |     numeroDaConta     |
+                                    |     saldo             |
+                                    |     titular           |
+               |--------------------|                       |------------------|
+               |                    |     depositar()       |                  |
+               |                    |                       |                  |
+               |                    |     sacar()           |                  |
+               |                    |                       |                  |
+               |                    |    verificarSaldo()   |                  |
+               |                    |_______________________|                  |
+               |                                                               |
+    ___________|___________                                          __________|____________
+   |                       |                                        |                       |
+   |     ContaCorrente     |                                        |     ContaPoupanca     |
+   |_______________________|                                        |_______________________|
+
+
+
+Dessa forma, a abstração nos ajuda a criar um código mais organizado, modular e reutilizável. Podemos criar classes
+abstratas que definem apenas os elementos essenciais, permitindo que subclasses mais específicas implementem os
+detalhes necessários. Isso nos dá flexibilidade para adaptar e estender nosso sistema de forma mais eficiente.
+
+Resumindo, a abstração em POO é a capacidade de representar objetos do mundo real como entidades independentes,
+destacando apenas os aspectos relevantes para o sistema em desenvolvimento. Ela nos permite criar classes com atributos
+e métodos que encapsulam esse comportamento e características, simplificando a complexidade e permitindo a criação de
+hierarquias de classes mais específicas.
