@@ -1,13 +1,18 @@
 package FUNDAMENTALS.FundamentalsOfJava.Enums;
 
+//Veja sobre enums no arquivo Colors...
+//Esse arquivo serve somente para mostrar como utilizar uma enum na prática...
+
 public class Enums {
     public static void main(String[] args) {
-        double weigth = 80;
-        Planet planet = Planet.EARTH;
+        //Veja como instanciar uma enum...
+        Colors red = Colors.RED;
+        Colors blue = Colors.BLUE;
+        Colors green = Colors.GREEN;
 
-        double mass = weigth / Planet.EARTH.getGravidadeSuperficial();
-        for (Planet p : Planet.values()) {
-            System.out.printf("Your weigth in %s will be %.2f kg%n", p, p.pesoSuperficie(massa));
-        }
+        //Veja como utilizar seus métodos...
+        System.out.println("A cor vermelha em RGB é: " + red.getColor());
+        System.out.println("A cor verde em RGB é: " + green.getColor());
+        System.out.println("A cor azul em RGB é: " + blue.getColor());
     }
 }
