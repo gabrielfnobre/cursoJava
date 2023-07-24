@@ -17,6 +17,14 @@ public class Car extends Vehicle{
         System.out.println("wheels: " + whells);
     }
 
+    void howManyWhells(String superclass){              //Nesse exemplo estamos mostrando que mesmo
+        if(superclass == "super"){                      //em overrides podemos chamar o mesmo método
+            super.howManyWheels();                      //da superclass, usando a palavra reservada
+        } else {                                        //"super"...
+            System.out.println("Use word \"super\"!");
+        }
+    }
+
     //AGORA VÁ PARA O ARQUIVO Inheritance...
 
 }

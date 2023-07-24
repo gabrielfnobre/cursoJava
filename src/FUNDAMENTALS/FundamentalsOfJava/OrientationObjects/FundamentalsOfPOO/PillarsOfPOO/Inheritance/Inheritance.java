@@ -14,7 +14,8 @@ public class Inheritance {
         System.out.println("Car: " + car.name);
         System.out.println("Model: " + car.model);
         car.howManyWheels();
-        System.out.println();
+        car.howManyWhells("super");     //Aqui estamos exemplificando que dá para chamar o método
+        System.out.println();                   //da superclasse
 
         System.out.println(moto.getClass().getSimpleName());
         moto.mySpeed();
