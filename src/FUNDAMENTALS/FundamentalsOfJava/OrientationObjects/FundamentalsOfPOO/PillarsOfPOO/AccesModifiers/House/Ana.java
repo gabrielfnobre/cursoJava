@@ -8,12 +8,4 @@ public class Ana {
 
     static Peter husband = new Peter();
 
-    public static void main(String[] args) {
-        System.out.println(husband.hobby);
-        System.out.println(husband.mannerOfSpeaking);
-        System.out.println(husband.job);
-        //System.out.println(husband.secrets);
-        System.out.println();
-    }
-
 }
