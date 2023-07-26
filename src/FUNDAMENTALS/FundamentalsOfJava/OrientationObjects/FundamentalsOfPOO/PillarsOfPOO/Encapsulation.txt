@@ -93,3 +93,20 @@ muito certo sobre os níveis que precisa para os objetos que está utilizando. V
             O public é o nível mais fraco do encapsulamento, ele permite que os elementos sejam acessíveis por
             qualquer parte do programa, até mesmo classes de outros pacotes poderão acessar elementos de nível public.
 
+OBSERVAÇÃO!!! MODIFICADORES DE ACESSO E SOBRESCRITA DE MÉTODOS:
+Quando temos sobre sobrescrita de métodos, não podemos diminuir o encapsulamento dele, apenas aumentá-lo. Por exemplo:
+
+    metodo() {      //Método primário, está package pois é o modificador de acesso default...
+        ...
+    }
+
+    @override               //Note que não podemos torná-lo público, pois o primeiro método implementado já era
+    protected metodo(){     //package, só podemos aumentar o encapsulamento, por isso usamos protected...
+        ...
+    }
+
+    @override               //Podemos aumentar mais ainda usando private.
+    private metodo(){
+        ...
+    }
+
