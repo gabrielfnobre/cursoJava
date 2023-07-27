@@ -18,7 +18,7 @@ O polimorfismo pode ser classificado em dois tipos: "Polimorfismo Dinâmico" e "
     POLIMORFISMO DINÂMICO
 
 O polimorfismo dinâmico também é conhecido como polimorfismo de tempo de execução ou override (sobrescrito). Pois ele
-ocorre somente por herança e é indenficado em tempo de execução pelo java. É quando um objeto de uma subclasse herda
+ocorre somente por herança e é indentificado em tempo de execução pelo java. É quando um objeto de uma subclasse herda
 métodos da superclasse que poderão ser modificados (sobrescritos) a sua maneira.
 
 Por exemplo, suponha que você tenha uma classe "Animal" como classe pai e as classes "Dog" e "Cat" como subclasses. Se
