@@ -74,6 +74,11 @@ public class AboutInterface {
         ferrari.breaking();
         ferrari.breaking();        //Até parar o carro...
         System.out.println("Atual speed: " + ferrari.getSpeed());
+        System.out.println();
+
+        ferrari.strangerMethod(); //Aqui é só para mostrar que métodos padrão criados em implementações podem ser
+                                    //invocados, mesmo que não tenham sido implementados de fato nas classes que
+                                    //utilizam a interface. Eles assumirão o valor padrão.
 
     }
 }

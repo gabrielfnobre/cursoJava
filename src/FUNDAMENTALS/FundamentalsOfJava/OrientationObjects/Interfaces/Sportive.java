@@ -12,9 +12,15 @@ package FUNDAMENTALS.FundamentalsOfJava.OrientationObjects.Interfaces;
 *               aumentar o seu nível de encapsulamento (mesmo dentro das
 *               classes);
 *
-*       #   MÉTODOS DEVEM SER SEMPRE ABSTRATOS:
+*       #   MÉTODOS DEVEM SER SEMPRE ABSTRATOS (OU NÃO DEPOIS DO JAVA 8):
 *               Os métodos de uma interface devem ser sempre abstratos (sem
-*               implementação), a implementação deve ser feita na classe;
+*               implementação), a implementação deve ser feita na classe. Mas,
+*               mas! Existe um adendo a isso, depois do java 8 foi
+*               implementado o método default para interfaces, onde podemos
+*               implementar um método padrão dentro da interface que poderá
+*               ser herdado pela classe que usar a interface. Sendo possível
+*               que a classe tanto utilize o método padrão, quanto possa
+*               sobrescrever esse método;
 *
 *       #   POR PADRÃO OS ATRIBUTOS SÃO SEMPRE CONSTANTES:
 *               Mesmo sem colocar o "final" na frente do nome da variável, ela
@@ -43,6 +49,14 @@ public interface Sportive {         //Em vez de "class" recebe o nome de "interf
 
     void turnOnTurbo();             //Só métodos abstratos!!
     void turnOffTurbo();
+
+    default void strangerMethod(){
+        System.out.println("I can to be invoke");
+    } //Aqui temos o exemplo de
+                                                                                //um método padrão, note
+                                                                                //usamos a palavra reservada
+                                                                                //"default" para implementar
+                                                                                //esse método...
 
     // SIGA PARA A INTERFACE Luxury...
 
