@@ -1,4 +1,4 @@
-package FUNDAMENTALS.FundamentalsOfJava.LambdaExpressions;
+package FUNDAMENTALS.FundamentalsOfJava.LambdaExpressions.Lambda;
 
 /*  Aqui temos uma interface comum, como geralmente usamos...
 * */
