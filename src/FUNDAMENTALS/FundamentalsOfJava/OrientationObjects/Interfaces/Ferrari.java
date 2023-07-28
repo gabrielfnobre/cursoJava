@@ -1,4 +1,4 @@
-package FUNDAMENTALS.FundamentalsOfJava.Interfaces;
+package FUNDAMENTALS.FundamentalsOfJava.OrientationObjects.Interfaces;
 
 // Siga o código para ver como implementamos os membros das interfaces...
 

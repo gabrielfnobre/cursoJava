@@ -1,4 +1,4 @@
-package FUNDAMENTALS.FundamentalsOfJava.Interfaces;
+package FUNDAMENTALS.FundamentalsOfJava.OrientationObjects.Interfaces;
 
 //  SOBRE INTERFACES:
 

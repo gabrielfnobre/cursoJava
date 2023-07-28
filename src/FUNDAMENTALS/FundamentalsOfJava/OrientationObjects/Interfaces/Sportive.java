@@ -1,4 +1,4 @@
-package FUNDAMENTALS.FundamentalsOfJava.Interfaces;
+package FUNDAMENTALS.FundamentalsOfJava.OrientationObjects.Interfaces;
 
 /*  Aqui temos um exemplo de interface, antes de seguirmos para ver o que está
 *   acontecendo no código, é importante ressaltar alguns aspectos importantes
