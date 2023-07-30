@@ -30,7 +30,7 @@ public class ForEach {
         approveds.forEach(name -> System.out.println(name)); //O método aceita uma lambda como objeto...
         System.out.println();
 
-        //Aqui temoso método usando "method reference", menos verboso ainda:
+        //Aqui temos o método usando "method reference", menos verboso ainda:
         System.out.println("Using lambda #02 with \"method reference:\"");
         approveds.forEach(System.out::println); //Nem mesmo é necessário atribuir o elemento da list sobre
                                                 //uma variável, o method reference já sabe que deve executar

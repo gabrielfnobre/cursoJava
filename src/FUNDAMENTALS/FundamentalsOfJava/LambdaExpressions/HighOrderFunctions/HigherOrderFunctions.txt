@@ -3,10 +3,10 @@
 
 Além das interfaces funcionais mencionadas anteriormente, o Java também possui várias funções de ordem superior
 (higher-order functions) que aceitam lambdas como argumentos. Essas funções estão presentes em algumas classes
-de coleções, streams e outras utilidades. Algumas delas incluem:
+de collections, streams e outras utilidades. Algumas delas incluem:
 
     forEach:
-    Essa função está presente em coleções como List, Set e Map e permite que você itere sobre os
+    Essa função está presente nas Collections como List, Set e Map e permite que você itere sobre os
     elementos e aplique um bloco de código (lambda) para cada um deles.
 
         Exemplo com List:
@@ -62,3 +62,12 @@ Essas são algumas das funções embutidas do Java que permitem o uso de lambdas
 forma mais concisa e funcional. Elas são parte fundamental da API Stream introduzida no Java 8, que proporciona
 uma maneira mais expressiva e eficiente de manipular coleções de dados.
 
+OBSERVAÇÃO IMPORTANTE!!!:
+Podemos usar Method References para facilitar a escrita de código, pois as Method References têm a missão de
+facilitar a legibilidade do código e torná-lo ainda menos verboso que uso de lambdas. Por exemplo:
+
+    names.forEach(name -> System.out.println(name));
+
+Poderia ser substituído por:
+
+    names.forEach(System.out::println); //Usando Method Reference para simplificar o código...
