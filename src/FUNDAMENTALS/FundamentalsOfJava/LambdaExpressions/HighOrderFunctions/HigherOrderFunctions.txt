@@ -1,0 +1,64 @@
+
+    HIGH-ORDER FUNCTIONS (FUNÇÕES DE ORDEM SUPERIOR)
+
+Além das interfaces funcionais mencionadas anteriormente, o Java também possui várias funções de ordem superior
+(higher-order functions) que aceitam lambdas como argumentos. Essas funções estão presentes em algumas classes
+de coleções, streams e outras utilidades. Algumas delas incluem:
+
+    forEach:
+    Essa função está presente em coleções como List, Set e Map e permite que você itere sobre os
+    elementos e aplique um bloco de código (lambda) para cada um deles.
+
+        Exemplo com List:
+
+            List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+            names.forEach(name -> System.out.println("Hello, " + name));
+
+
+    filter:
+    Função disponível em streams que permite filtrar elementos com base em uma condição definida pela expressão
+    lambda.
+
+        Exemplo:
+
+            List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+            List<Integer> evenNumbers = numbers.stream()
+                                        .filter(num -> num % 2 == 0)
+                                        .collect(Collectors.toList());
+
+    map:
+    Também disponível em streams, essa função permite mapear (transformar) os elementos de uma coleção de acordo
+    com uma função definida pela expressão lambda.
+
+        Exemplo:
+
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+        List<Integer> nameLengths = names.stream()
+                                    .map(name -> name.length())
+                                    .collect(Collectors.toList());
+
+
+    reduce:
+    A função reduce combina os elementos de uma coleção em um único resultado. Pode ser usada para somar todos
+    os elementos, encontrar o valor máximo, mínimo, entre outros.
+
+        Exemplo:
+
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        int sum = numbers.stream().reduce(0, (a, b) -> a + b);
+
+    sorted:
+    Disponível em streams, essa função retorna uma nova stream com os elementos ordenados com base em um
+    comparador definido pela expressão lambda.
+
+        Exemplo:
+
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+        List<String> sortedNames = names.stream()
+                                    .sorted((a, b) -> a.compareTo(b))
+                                    .collect(Collectors.toList());
+
+Essas são algumas das funções embutidas do Java que permitem o uso de lambdas para expressar comportamentos de
+forma mais concisa e funcional. Elas são parte fundamental da API Stream introduzida no Java 8, que proporciona
+uma maneira mais expressiva e eficiente de manipular coleções de dados.
+
