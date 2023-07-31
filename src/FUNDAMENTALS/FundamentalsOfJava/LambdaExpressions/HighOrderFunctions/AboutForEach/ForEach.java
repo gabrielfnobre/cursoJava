@@ -1,4 +1,4 @@
-package FUNDAMENTALS.FundamentalsOfJava.LambdaExpressions.HighOrderFunctions;
+package FUNDAMENTALS.FundamentalsOfJava.LambdaExpressions.HighOrderFunctions.AboutForEach;
 
 // FOR EACH PARA LAMBDAS:
 

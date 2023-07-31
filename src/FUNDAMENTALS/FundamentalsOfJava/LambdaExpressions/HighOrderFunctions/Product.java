@@ -1,8 +1,8 @@
-package FUNDAMENTALS.FundamentalsOfJava.LambdaExpressions.HighOrderFunctions.AboutPredicate;
+package FUNDAMENTALS.FundamentalsOfJava.LambdaExpressions.HighOrderFunctions;
 
 public class Product {
-    String name;
-    Double value;
+    public String name;
+    public Double value;
 
     public Product(String name, Double value) {
         this.name = name;

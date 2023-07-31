@@ -53,6 +53,8 @@ package FUNDAMENTALS.FundamentalsOfJava.LambdaExpressions.HighOrderFunctions.Abo
 *   Abaixo temos um exemplo de como usar o Predicate...
 * */
 
+import FUNDAMENTALS.FundamentalsOfJava.LambdaExpressions.HighOrderFunctions.Product;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
