@@ -15,6 +15,7 @@ public class ConsumerExample { //Receives a value, but don't gives return
 
         List<Product> productList = Arrays.asList(p1, p2, p3, p4, p5);
 
+        //Consumer<T>
         Consumer<Product> showMeDiscountPrice = prod -> System.out.println(prod); //Look at the class Product to see the changes in "toString" method...
         productList.forEach(showMeDiscountPrice); //forEach receives for patern a lambda and executes a Consumer...
         System.out.println();

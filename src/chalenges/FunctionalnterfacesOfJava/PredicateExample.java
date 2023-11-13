@@ -7,6 +7,7 @@ public class PredicateExample {
 
         Product product = new Product("Notebook", 3893.99, 0.15);
 
+        //Predicate<T> ever returns Boolean
         Predicate<Product> isExpensive = prod -> (prod.price * (1 - prod.discount)) > 750 ? true : false;
 
         System.out.println(isExpensive.test(product));
