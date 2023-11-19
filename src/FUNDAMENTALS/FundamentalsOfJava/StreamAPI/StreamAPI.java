@@ -1,16 +1,57 @@
 package FUNDAMENTALS.FundamentalsOfJava.StreamAPI;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 public class StreamAPI {
     public static void main(String[] args) {
+        //esse consumer foi gerado para facilitar o uso do print
+        Consumer<Object> print = System.out::println;
 
-        List<String> list = Arrays.asList("Ana", "Lia", "Bia", "Gui", "Fê");
 
+        //Usando o método "of" de Stream...
+        Stream<String> langs = Stream.of("Fui", "usando", "of de", "Stream\n");
+        langs.forEach(print);
+
+
+        //Através de uma lista usando o método stream da instância de list...
+        List<String> list = Arrays.asList("Fui", "usando", "o método", "stream", "da instância", "de List\n");
         Stream<String> approved = list.stream();
-        approved.forEach(System.out::println);
+        approved.forEach(print);
+
+
+        //Através de um array usando "of" de Stream...
+        String[] generateByArrayWithOF = {"Fui", "usando", "array", "com of", "de Stream\n"};
+        Stream.of(generateByArrayWithOF).forEach(print);
+
+
+        //Através de um array usando "stream" de Arrays...
+        String[] generateByArrayWithStream = {"Fui", "usando", "array", "com stream", "de Arrays\n"};
+        Arrays.stream(generateByArrayWithStream).forEach(print);
+
+
+        //CRIAÇÃO DE PARALLEL STREAMS!!!
+        /*Criando uma parallelStream, veja como fica fora de ordem por que os valores são operados
+        simultaneamente...*/
+
+        //Através de uma list usando o método "parallelStream" da instância de List...
+        List<String> abc = Arrays.asList("a", "b", "c", "d", "e");
+        abc.parallelStream().forEach(print);
+
+
+        //Transformando uma stream em parallel, usando o método "parallel" da instância de List...
+        System.out.println();
+        abc.stream().parallel().forEach(print);
+
+
+        //Através de um Set, usando o método "parallelStream" da instância de Set...
+        System.out.println();
+        Set<Integer> set = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5));
+        set.parallelStream().forEach(print);
 
     }
 }
@@ -33,9 +74,10 @@ public class StreamAPI {
 *       - Métodos Estáticos da API:
 *
 *           Essa API possuí uma série de métodos estáticos usados para gerar resultados sobre a stream
-*           de dados. Com esses métodos podemos filtrar valores, fazer mapeamento de dados, redução dos
-*           valores a um resultado único através de uma operação, encontrar valores máximo e mínimo e
-*           muitas outras funcionalidades. Esses métodos podem ser divididos em 3 diferentes tipos de
+*           de dados. Com esses métodos podemos filtrar valores (filter), fazer mapeamento de dados
+*           (map), redução dos valores a um resultado único através de uma operação (reduce), encontrar
+*           valores máximo e mínimo (min e max) e muitas outras funcionalidades (como por exemplo:
+*           matchs: all, any e none). Esses métodos podem ser divididos em 3 diferentes tipos de
 *           operações:
 *
 *               # Built Operations:
@@ -59,5 +101,8 @@ public class StreamAPI {
 *           É possível executar métodos sobre todos os valores em paralelo. Isso agiliza o processo de
 *           execução, principalmente em grandes massas de dados;
 *
+*
+*   Veja no exemplo acima como fazemos para criar streams de parallel streams de diferentes maneiras
+*   possíveis...
 *
 * */
