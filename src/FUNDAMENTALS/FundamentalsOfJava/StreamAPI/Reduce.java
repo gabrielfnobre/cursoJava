@@ -49,6 +49,13 @@ public class Reduce {
                         //Se houver valor, imprime no console o resultado, se não hover imprime
                         //a frase "There are not values!"...
 
+        List<Integer> sentence = Arrays.asList(1, 2, 3);
+        Integer resultSentence = sentence.parallelStream()
+                .reduce(0, (n1, n2) -> n1 + n2, (n1, n2) -> {
+                    System.out.println(n1 + 1 + n2 + 1);
+                    return n1 + 1 + n2 + 1;
+                });
+        System.out.println(resultSentence);
     }
 }
 
