@@ -41,7 +41,7 @@ public class Distinct {
 *          *    São "intermediaries operations", podem ser encadeadas numa composição de métodos da
 *               stream;
 *
-*          *    Têm que receber como parâmetros uma Function, Functional Interface ou Lambda;
+*          *    Não recebem valor nenhum como parâmetro;
 *
 *          *    É preferível que as funções, lambdas ou functional interfaces estejam armazenadas
 *               numa interface ou classe que não poderia ser instanciada, gerando um melhor
