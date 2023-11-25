@@ -16,6 +16,7 @@ public class ErrorTypes {
             System.out.println("I'm execute anyway"); //Finally será executado se houver exceção ou não!
         }
 
+                //---------------------------//----------------------------
 
         //Exemplo de tratamento onde a exceção NÃO acontece!
         try {
@@ -26,6 +27,8 @@ public class ErrorTypes {
         }   finally {
             System.out.println("but I'm execute yet"); //Finally será executado se houver exceção ou não!
         }
+
+                //---------------------------//----------------------------
 
         //Exemplo de exceção atribuída a uma variável...
         RuntimeException exception = instanceInVariable(); //Esse método retorna um objeto de
@@ -38,6 +41,7 @@ public class ErrorTypes {
                                                                         //usando println, mas o erro
                                                                         //não foi lançado!
 
+                //---------------------------//----------------------------
 
         //Impressão do erro criado por instancialização...
         instanceOfRuntimeException(); //Por termoa chamado o throw no momento da instancialização
