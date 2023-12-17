@@ -5,54 +5,68 @@ public class CheckedAndUncheckedExceptions {
 
         //Exemplo de tratamento de erro para uma checked exception!
         try {
-            firstToCallChecked(); //Não é possível chamá
-        } catch (Exception e){
+            firstToCallChecked(); //Não seria possível chamar por esse método sem que ele fosse trata-
+        } catch (Exception e){      //do dentro do método main!
             System.out.println("A checked exception has just been handled.");
         }
 
-        try {
-            firstToCallUnchecked();
-        } catch (ArithmeticException e){
-            System.out.println("A unchecked exception has just been handled");
+        try {                               //Fizemos um tratamento de erro aqui para a unchecked ex-
+            firstToCallUnchecked();         //ception, mas se não quiséssemos não seria obrigatório...
+        } catch (ArithmeticException e){ //Estamos recebendo uma ArithmecticException que está dentro
+            System.out.println("A unchecked exception has just been handled");  // de RuntimeException
         }
 
-        firstToCallUnchecked();
+        firstToCallUnchecked(); //Veja que podemos optar por receber um método de uma RuntimeException
+                                //sem a obrigatoriedade de fazer um tratamento de erro. Veja que toda
+                                //a stack da exceção será impressa...
     }
 
     //CHECKEDS
-    public static void divisionByZeroChecked() throws Exception{ //Aqui temos
-        System.out.println(7 / 0);
-    }
+    public static void divisionByZeroChecked() throws Exception{ //Aqui temos uma exceção checkada que
+        System.out.println(7 / 0);                                  //será chamada dentro de uma pilha
+                                                                    //de métodos, note o uso da palavra
+                                                                    //reservado "throws" para que a
+                                                                    //exceção seja tratada em outro mé-
+    }                                                               //todo que chame por ela...
 
-    public static void firstToCallChecked() throws Exception{
+    public static void firstToCallChecked() throws Exception{ //throws de novo...
         secondToCallChecked();
     }
 
-    public static void secondToCallChecked() throws Exception{
+    public static void secondToCallChecked() throws Exception{ //throws de novo...
         thirdToCallChecked();
     }
 
-    public static void thirdToCallChecked() throws Exception{
+    public static void thirdToCallChecked() throws Exception{ //throws de novo...
         divisionByZeroChecked();
     }
 
             //------------------------------//------------------------------
 
     //UNCHECKEDS
-    public static void firstToCallUnchecked(){
-        secondToCallUnchecked();
-    }
-    public static void secondToCallUnchecked(){
-        thirdToCallUnchecked();
+    public static void divisionByZeroUnchecked(){ //Note que também temos uma exceção aqui identica a
+        System.out.println(7 / 0);                  //exceção checkada, porém, o fato de não usarmos
+                                                    //throws para uma "Exception" e de ela não retornar
+                                                    //uma Exception faz com que essa seja uma
+                                                    //RuntimeException, ou seja, uma excessão não
+                                                    //checkada, não havendo a necessidade de passar o
+                                                    //tratamento de erro dela a adiante...
     }
 
-    public static void thirdToCallUnchecked(){
+    public static void firstToCallUnchecked(){ //Não foi necessário usar "throws"...
+        secondToCallUnchecked();
+    }
+
+    public static void secondToCallUnchecked() throws RuntimeException{ //Se quiser passar uma
+        thirdToCallUnchecked();                     //RuntimeException para frente usando throws pode
+                                                    //passar, mas que fique claro que isso é total-
+                                                    //mente opcional...
+    }
+
+    public static void thirdToCallUnchecked(){ //Não foi necessário usar "throws"...
         divisionByZeroUnchecked();
     }
 
-    public static void divisionByZeroUnchecked(){
-        System.out.println(7 / 0);
-    }
 }
 
 //      EXCEÇÕES "CHECKADAS" E "NÃO CHECKADAS"
@@ -160,4 +174,48 @@ public class CheckedAndUncheckedExceptions {
 *               do linha de código por não ter que repassar a obrigatoriedade do tratamento de erro
 *               para os demais métodos chamadores.
 *
+*
+*       COMO PODEMOS DEFINIR EXCEÇÕES CHECKADAS DE NÃO CHECKADAS?
+*
+*       Toda Exceção é descendente da Classe Pai "Exception", por padrão, uma exceção que faça parte
+*       de "Exception" por natureza já é uma exceção checkada, ou seja, é OBRIGATÓRIO QUE SEJA TRATA-
+*       DA por try-catch.
+*
+*       Como fazer para passar o tratamento dela para frente?
+*       Se desejamos que a obrigatoriedade do tratamento de erro seja passado para outro método, de-
+*       veremos usar a palavra reservada "throws" e o nome da classe que corresponde ao objeto da ex-
+*       ceção na assinatura do método, podemos também usar a classe "Exception", que de forma genéri-
+*       ca representa qualquer objeto que herde de suas classes. Por exemplo:
+*
+*           static void metodoDoErro throws Exception(){ //veja que usamos a palavra reservada
+*               ...                                      //"throws" na assinatura junto com o nome da
+*           }                                            //classe "Exception"...
+*
+*       Em todos os métodos que usarmos "throws", a necessidade de tratar o erro será passada para o
+*       próximo método chamador.
+*
+*       Observação! O método "main" não pode usar o throws, pois ele não tem para quem passar o tra-
+*       tamento de erro por ser o método inicial de toda aplicação.
+*
+*       E quanto as unchecked exception? Como fazer para gerá-las?
+*
+*       As unchecked exception pertencem a uma classe que herda de "Exception", que é a classe
+*       "RuntimeException", qualquer exceção que seja um objeto de RuntimeException ou das suas
+*       classes filhas por padrão é uma unchecked exception NÃO HAVENDO A OBRIGATORIEDADE DE FAZER
+*       UM TRATAMENTO DE ERRO OU DE PASSÁ-LO ADIANTE.
+*
+*       Porém, se desejar, você pode usar a palavra reservada "throws" na assinatura do método onde
+*       ocorre uma RuntimeException, mas isso é totalmente opcional:
+*
+*           static void metodoDoErro throws RuntimeException(){ //veja que usamos a palavra reservada
+ *               ...                                      //"throws" na assinatura junto com o nome da
+ *           }                                            //classe "RuntimeException"...
+ *
+ *          É o mesmo que...
+ *
+ *          static void metodoDoErro(){ //Não há necessidade de usar "throws"...
+ *               ...
+ *           }
+ *
+ *      Veja alguns exemplos acima...
  */
