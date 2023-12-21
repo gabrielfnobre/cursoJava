@@ -15,16 +15,14 @@ public class calculator {
         Double numero1 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o primeiro numero:"));
         Double numero2 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite o segundo numero:"));
         String operator = JOptionPane.showInputDialog(null, "Digite a operacao (+ - * / %):");
-        Double result =  "+".equals(operator) ? numero1 + numero2 : 0;
-        result =  "-".equals(operator) ? numero1 - numero2 : result;
-        result =  "/".equals(operator) ? numero1 / numero2 : result;
-        result =  "*".equals(operator) ? numero1 * numero2 : result;
-        result =  "%".equals(operator) ? numero1 % numero2 : result;
+        Double resultado =  "+".equals(operator) ? numero1 + numero2 : 0;
+        resultado =  "-".equals(operator) ? numero1 - numero2 : resultado;
+        resultado =  "/".equals(operator) ? numero1 / numero2 : resultado;
+        resultado =  "*".equals(operator) ? numero1 * numero2 : resultado;
+        resultado =  "%".equals(operator) ? numero1 % numero2 : resultado;
 
-        JOptionPane.showMessageDialog(null, "O resultado eh: " + result);
+        JOptionPane.showMessageDialog(null, "O resultadoado eh: " + resultado);
 
         System.exit(0);
-
     }
-
 }
