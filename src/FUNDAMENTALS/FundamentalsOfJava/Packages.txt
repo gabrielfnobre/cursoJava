@@ -1,8 +1,0 @@
-PACOTES
-
-Pacotes no java é como chamamos as pastas que armazenam nossos arquivos Java.
-Toda pasta é um pacote.
-
-OBSERVAÇÃO: Devemos tomar cuidado ao nomear arquivos e pacotes com o mesmo nome de packages internos ou 
-            externos do Java. Pois, isso poderia confundir o Java fazendo com que um dos arquivos se 
-            torne inacessível.
