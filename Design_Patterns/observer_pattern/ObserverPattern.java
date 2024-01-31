@@ -77,8 +77,8 @@ public class ObserverPattern {
  *      | -observerCollection   |           |                 |
  *      |_______________________|           |    +notify()    | 
  *  	|                       |           |_________________|
- *      | -registerObserver()   |                    △
- *      | -unRegisterObserver() |                    |
+ *      | +registerObserver()   |                    △
+ *      | +unRegisterObserver() |                    |
  *      | -notifyObserver()     |                    |
  *      |_______________________|                    |
  *                 ◆                                 |
