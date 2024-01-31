@@ -12,14 +12,14 @@ public class ObserverPattern {
  * 	ocorreu.
  * 
  * 	Assim, todos os objetos interessados na mudança poderão ser informados e poderão executar um 
- * 	determinado comportamento definido previamente para acontecer assim que a mudança é disparada.
+ * 	determinado comportamento definido previamente para acontecer assim que a mudança for dispa-
+ * 	rada.
  * 
  * 	Para ilustrar:
  * 
  * 		É como um aniversário, imagine que uma mãe deseja fazer um aniversário surpresa para o 
- * 		filho e contata o porteiro do prédio onde mora para avisá-la assim que o rapaz chegar. É 
- * 		como se essa mãe estivesse usando o padrão observer junto com os demais convidados da 
- * 		festa.
+ * 		filho e contata o porteiro do prédio para avisá-la assim que o rapaz chegar. É como se 
+ * 		essa mãe estivesse usando o padrão observer junto com os demais convidados da festa.
  * 
  *   	Pois, temos um evento: A chegada do aniversariante;
  *   	Temos um observador: O porteiro;
@@ -28,8 +28,7 @@ public class ObserverPattern {
  * 
  * 	Qual as vantagens de usar esse padrão?
  * 
- * 		Podemos usar mais uma vez o exemplo do aniversariante para entender quais as vantagens 
- * 		do padrão Observer.
+ * 		Podemos entender bem as vantagens usando ainda o exemplo do aniversariante...
  * 
  * 			* Produtividade: 
  * 
@@ -40,12 +39,13 @@ public class ObserverPattern {
  * 							da chegada dele;
  * 
  * 							Da mesma forma, podemos criar objetos observadores que não precisam
- * 							se preocupar a todo instante que um evento aconteça para que ele 
- * 							possa fazer as demais execuções que não precisam necessariamente 
- * 							parar enquanto a resposta do evento não viesse.
+ * 							se preocupar a todo instante que um evento aconteça para que ele pos-
+ * 							sa fazer as demais execuções que não precisam necessariamente parar 
+ * 							enquanto a resposta do evento não viesse.
  * 
  * 							O objeto pode ir executando suas tarefas e será notificado quando o
  * 							evento ocorrer, tornando o código mais eficiente e produtivo.
+ * 
  * 
  * 			* Baixo Acoplamento:
  * 
@@ -74,7 +74,7 @@ public class ObserverPattern {
  *  	|        SUBJECT        |◊----------|    OBSERVER     |
  *  	|_______________________|           |_________________|
  *  	|                       |           |_________________|
- *      | +observerCollection   |           |                 |
+ *      | -observerCollection   |           |                 |
  *      |_______________________|           |    +notify()    | 
  *  	|                       |           |_________________|
  *      | -registerObserver()   |                    △
@@ -127,8 +127,9 @@ public class ObserverPattern {
  *  		* Observer Concrete:
  *  
  *  			É o elemento observador interessado, nós o chamamos de "Observador Concre-
- *  			to", pois ele é o responsável por implementar o método abstrato do Observer
- *  			transformando esse método abstrato em um método concreto.
+ *  			to", pois ele é o responsável por implementar o método abstrato advindo da
+ *  			interface Observer, transformando esse método abstrato em um método concre-
+ *  			to.
  *  
  *  			São os objetos de Observer Concrete que são registrados no Subject e depo-
  *  			is notificados pelo Subject quanto o evento ocorre. Podemos ter quantos Ob-
@@ -137,9 +138,16 @@ public class ObserverPattern {
  *  			interessado em saber quando o evento ocorre, para que possam ser notificados 
  *  			e agir de acordo com seus interesses quando isso acontecer.
  *  
- *  			O método concreto implementado a partir do Observer será o método executado
- *  			para cada Observer Concrete quando o Subject notificar o evento.
- *  
- *  			No diagrama acima, note que 
+ * 				No diagrama acima, note que os Observer Concrete possuem uma dependência de  
+ * 				composição com a classe do Subject, pois essa classe armazena diversos Ob-
+ * 				server Concrete para poder notificá-los. Se o Subject não existe, os Obser-
+ * 				ver Concrete perdem o valor, pois não haverá nenhum elemento responsável por
+ * 				assistir o evento acontecer.
  * 
+ * 				Além disso, veja que o Observer Concrete também replica o método da interfa-
+ * 				ce Observer nele mesmo.
+ * 
+ *	Agora, veja no exemplo acima uma implementação do exemplo do aniversariante na prática 
+ *	usando o padrão Observer...
+ *
  * */
