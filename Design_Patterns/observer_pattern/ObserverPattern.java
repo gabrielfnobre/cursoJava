@@ -1,7 +1,19 @@
 package observer_pattern;
 
 public class ObserverPattern {
-
+	public static void main(String[] args) {
+		
+		Mom mom = new Mom(); //Um objeto mãe que implementou a interface Observer.
+		Guest guest = new Guest(); //Um objeto convidado que implementou a interface Observer.
+		Consierge consierge = new Consierge(); //Um porteiro que fica de olho no evento.
+		
+		consierge.registerObserver(mom); //Mãe foi registrada no porteiro...
+		consierge.registerObserver(guest); //Convidado foi registrado no porteiro...
+		
+		consierge.notifyObservers(); //O método observador foi colocado em ação...
+		
+		//Vá para a interface Observer...
+	}
 }
 
 // 	OBSERVER PATTERN
