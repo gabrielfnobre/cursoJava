@@ -1,0 +1,53 @@
+
+	FUNDAMENTOS DO JDBC
+	
+
+		OQUE É O JDBC?
+	
+	O JDBC é uma biblioteca inclusa do Java que contém interfaces, classes e 
+	métodos que visam a interação com o banco de dados a partir da nossa apli-
+	cação. O que significa que podemos gerar bancos, tabelas e fazer CRUD tu-
+	do por através do código usando os métodos do JDBC. 
+	 
+	 
+		COM QUE TIPOS DE BANCOS DE DADOS O JDBC TRABALHA?
+	
+	O JDBC trabalha com todo tipo de banco de dados, usando as mesmas inter-
+	faces, classes e métodos para todos eles. Como isso é possível? O que tor-
+	na isso possível é uso de drivers. Cada banco de dados disponibiliza os 
+	drivers necessários para que o JDBC possa interagir com eles sem a neces-
+	sidade de ter classes e métodos diferentes para cada tipo de banco de da-
+	dos.
+	
+	Isso faz com que o JDBC - embora seja uma bibioteca antiga - seja a mais 
+	utilizada pela comunidade do Java até hoje, por sua versatilidade e re-
+	utilização. Até mesmo os frameworks mais modernos, como o Hibernate (que
+	utlizam uma abstração maior para esse tipo de trabalho) utilizam o JDBC
+	por debaixo dos panos para acessar o banco de dados. 
+	
+	
+		QUAIS VANTAGENS DE UTILIZAR O JDBC
+		
+	As vantagens são:
+	
+		* Facilidade:
+		
+			É uma biblioteca já inclusa no Java, exige uma curva de aprendi-
+			zado baixa, pode ser reutilizada nos mais diferentes tipos de 
+			bancos de dados, possuí uma adoção grande pela comunidade, o que
+			facilita a busca por informações e ajuda;
+			
+		* Versatilidade:
+		
+			Pode utilizar qualquer banco de dados por através do uso de dri-
+			vers sem modificar as interfaces, classes e métodos que utiliza;
+			
+		* Velocidade:
+		
+			O JDBC acessa o banco de dados diretamente, o que dá as aplica-
+			ções um ganho de performace ao fazer consultas ao banco em rela-
+			ção a outros frameworks mais modernos, pois a grande maioria des- 
+			tes frameworks utilizam JDBC por debaixo dos panos;
+	
+	
+	
