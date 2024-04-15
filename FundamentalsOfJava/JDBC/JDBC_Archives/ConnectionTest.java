@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
-// Veja explicação da aula abaixo...
+// Veja explicação da aula após o código abaixo...
 
 public class ConnectionTest {
 	
@@ -59,6 +59,12 @@ public class ConnectionTest {
 		/*	Criamos uma conexão por através da classe "Connection, usando o Driver-
 			Manager e o método "getConnection" passando a url, o nome do servidor e
 			a senha para estabelecer uma conexão entre o JDBC e o banco de dados.
+			
+			OBSERVAÇÃO IMPORTANTE!!!
+			O método getConnection de DriverManager possuí uma excessão checkada do
+			tipo SQLException, nós temos que resolvê-la por através de um try-catch
+			ou passá-la para frente usando throws. No caso deste exemplo, estamos
+			usando throws.
 		 */
 		
 		String sql = "SELECT * FROM estados;";
