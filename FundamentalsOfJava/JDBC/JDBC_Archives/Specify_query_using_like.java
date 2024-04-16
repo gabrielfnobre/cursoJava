@@ -28,7 +28,7 @@ public class Specify_query_using_like {
 		
 		//Usamos o scanner para pegar o texto passado pelo usuário...
 		Scanner value = new Scanner(System.in);
-		System.out.println("Gets all names that constains: ");
+		System.out.println("Gets all names that contains: ");
 		String name = value.nextLine();
 		
 		//Veja que fizemos a concatenação dos escapes dentro do método "setString"
