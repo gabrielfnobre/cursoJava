@@ -39,9 +39,9 @@ public class Screens {
 		JLabel labelText = new JLabel(); //O texto é criado
 		painel.add(labelText); //Texto adicionado ao painel rosa...
 		
-		button.addActionListener(e -> { //Aqui temos padrão observer implementado, quando o botão identifica o clica, ele fará um comportamento na letra do painel.
-			String text = labelText.getText(); //que será alternada a cada click.
-			if(text.equalsIgnoreCase("OOOOH")) {				
+		button.addActionListener(e -> { //Aqui temos padrão observer implementado internamente no swing, quando o botão identifica o click ele 
+			String text = labelText.getText(); //faz com que a letra mude. O swing usa muito o observer por através dos métodos listener que
+			if(text.equalsIgnoreCase("OOOOH")) { //tornam os componentes do swing em observers que desejam saber quando os eventos ocorrerem.
 				labelText.setText("AAAAH");
 			} else {
 				labelText.setText("OOOOH");
