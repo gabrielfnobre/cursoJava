@@ -1,0 +1,80 @@
+
+	FUNDAMENTOS DO DAO
+	
+	
+	O DAO (Data Access Object) é um padrão de projeto que visa padronizar a 
+	forma como a integração entre software e banco de dados é feita no de-
+	senvolvimento de software.
+	
+	Ele faz isso basicamente por separar a lógica de negócio da nossa apli-
+	cação da lógica de integração com o DB tornado essas 2 lógicas indepen-
+	dentes uma da outra.
+	
+	Isso é feito justamente para evitar que tenhamos códigos extensos de in-
+	tegração com DB misturados a nossa lógica de negócio, gerando códigos 
+	extensos, confusos e de difícil manutenção.
+	
+	Como o DAO faz isso?                        _____
+	                                           |     |
+	                                 --------->| JPA |-----------
+	                                 |         |_____|          |
+	 _____________       ____________|__        ______       ___V_________    
+	|             |     |               |      |      |     |             |   
+	| DATA SOURCE |---->| DAO INTERFACE |----->| JDBC |---->| Application |
+	|_____________|     |_______________|      |______|     |_____________|
+		                             |          ___________     ^
+		                             |         |           |    |
+		                             --------->| Hibernate |-----
+		                                       |___________|
+		                                      
+	No diagrama acima, note que basicamente o DAO é uma interface a mais no 
+	pacote da nossa aplicação que faz a ponte entre a origem de dados seja 
+	ela um SGBD, um XML ou Web Service e o nosso pacote de conexão de dados 
+	seja ele qual for (JPA, JDBC ou outro) e a nossa aplicação. 
+	
+	Isso faz com que a aplicação fique totalmente independente da nossa ló-
+	gica de acesso aos dados.
+	
+	Como isso é feito?
+	
+	O DAO preza pelo encapsulamento da lógica de acesso aos dados gerando 
+	uma interface de alto nível para a nossa aplicação onde é possível fa-
+	zer todo o processo de CRUD de forma fácil sem se preocupar com a im-
+	plementação de código em si para fazer essa tarefa.
+	
+	As principais vantagens do padrão DAO incluem:
+
+	* Separação de responsabilidades: 
+		A lógica de negócios não precisa se preocupar com os detalhes de 
+		como os dados são acessados e manipulados.
+		
+	* Reutilização de código: 
+		A lógica de acesso aos dados pode ser reutilizada em diferentes 
+		partes da aplicação.
+		
+	* Facilidade de manutenção: 
+		Mudanças na forma como os dados são armazenados e acessados podem 
+		ser feitas apenas na implementação do DAO, sem afetar o restante 
+		da aplicação.
+		
+	* Testabilidade: 
+		É mais fácil testar a lógica de negócios isoladamente, substitu-
+		indo o DAO por um mock ou uma implementação de teste.
+		
+	A estrutura básica de um DAO geralmente inclui interfaces que definem 
+	as operações de acesso aos dados (por exemplo: create, read, update, 
+	delete) e classes concretas que implementam essas interfaces para dife-
+	rentes fontes de dados.
+
+	Por exemplo, suponha que você tenha uma entidade chamada Usuario. Você 
+	pode ter uma interface "UsuarioDAO" com métodos como criarUsuario, ob-
+	terUsuarioPorId, atualizarUsuario e excluirUsuario. Em seguida, você po-
+	de ter implementações dessa interface para acessar dados de um banco de 
+	dados relacional, um serviço web ou qualquer outro meio de armazenamento 
+	de dados. 
+	
+	Isso mantém a lógica de acesso aos dados desacoplada da lógica de negó-
+	cios que utiliza esses dados.
+	
+	
+	
