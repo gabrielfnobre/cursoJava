@@ -1,0 +1,127 @@
+
+
+	JPA (JAVA PERSISTENCE API)
+	
+	
+	O JPA, traduzido "API de Persistência do Java", de forma resumida é uma API interna
+	do Java que fornece implementações simples de serem utilizadas para persistir dados
+	em BDs Relacionais.
+	
+	O JPA utiliza o modelo de mapeamento ORM (Object Relational Mapping - Mapeamento de 
+	Objeto Relacional) que nada mais é do que um padrão utilizado para transformar Obje-
+	tos Java simples em elementos de um BD relacional e vice-versa.
+	
+	Ficou confuso? Veja o diagrama abaixo...
+	
+						  Objeto Java              Tabela MySQL
+						 ____________            ________________
+						|            |          |                |
+						|   CLASS    |--------->|     ENTITY     |
+						|____________|          |________________|
+						|            |          |                | 
+						| ATTRIBUTES |--------->|     COLUMNS    |
+						|____________|          |________________|
+						|            |          |                |
+						|  METHODS   |--------->| SQL COMMANDERS |
+						|____________|          |________________|
+	
+	
+	O que o JPA faz basicamente é transformar um objeto Java em um registro da nossa ta-
+	bela no BD, usando o padrão de Mapeamento ORM, o JPA transforma classes em entida-
+	des, Atributos em Colunas da nossa tabela e Métodos em comandos SQL.
+	
+	E isso tudo de uma maneira simples e intuítiva, pois o JPA utiliza frameworks incor-
+	porados a ele que já trazem os métodos DML, DDL e outros prontos na sua implemen-
+	tação, o desenvolvedor não precisa criar nenhum médoto CRUD, ele simplesmente tem
+	que mostrar ao Java que uma determinada classe, atributo ou método faz referência 
+	a um determinado elemento ou comando do SQL.
+	
+	O framework mais usado para implementação ORM do JPA é o Hibernate. O Hibernate não
+	é nativo do Java, ele precisa ser baixado para ser utilizado. Por através dele, é
+	possível que nós usemos @annotations para identificar elementos do nosso código a
+	elementos do BD. Veja alguns exemplos:
+	
+		@Entity
+		public class Product {
+			
+			@Id
+			private Long id;
+			
+		}
+		
+		O exemplo acima, mostra que a classe "Product" faz referência a tabela "Product"
+		do nosso BD, e o atributo "id" faz referência a PK do nosso BD. Toda essa in-
+		formação, que precisaria ser passada de forma complexa, é passada de maneira 
+		rápida e natural por através das @annotations que o Hibernate usa.
+		
+	Mas como o Hibernate sabe para qual BD ele deverá referenciar? Essa informação é pas-
+	sada para ele por através de código XML, que faz a configuração entre a nossa apli-
+	cação e o BD. Tudo isso é feita de forma muito encapsulada no mais alto nível, o que
+	torna a criação e manutenção de código rápida e eficaz.
+	 ____________________________________________________________________________________
+	|                                                                                    |
+	| OBSERVAÇÃO: Por debaixo dos panos, o Hibernate utiliza JDBC, portanto essa biblio- |
+	| teca também precisa ser baixada junto ao Hibernate.                                |
+	|____________________________________________________________________________________|
+	
+	
+	IMPORTÂNCIA DO DAO NO JPA
+	
+	No JPA o conceito de DAO é muito importante (se não se lembrar o que é DAO veja a 
+	pasta de designer patterns sobre DAO) para fazer a separação entre código do negócio
+	e código de acesso ao BD.
+	
+	Visto que a implementação do JPA pode ser feita em qualquer lugar do nosso código é
+	importante que o desenvolvedor se atente a manter sua pastinha de DAO bem separada do
+	model da aplicação. Isso ajudará os desenvolvedores a construir um código mais manu-
+	tenível, fácil de adaptar e menos confuso.
+	
+	
+	PADRÃO DE PROJETO DATA MAPPER
+	
+	O Hibernate faz o uso extensivo do padrão de projeto Data Mapper (Mapeador de Dados).
+	o Data Mapper é um padrão de projeto que estipula técnicas para identificar objetos
+	do nosso código e representá-los em elementos dos BDs, ou vice-versa.
+	
+	Para isso o Data Mapper utiliza @annotations, XML, JSON ou outros tipos de meta-da-
+	dos para fazer essa identificação e atribuição de comandos. Diferente de outros pa-
+	drões de Mapeamento de dados, como por exemplo o ACTIVE RECORD, o Data Mapper não 
+	utiliza herança para fazer com que classes e objetos gerados delas representem re-
+	gistros no BD, em vez disso ela usa mapeamento por através de @annotations, XML e ou-
+	tros.
+	
+	O diagrama abaixo mostra bem isso...
+	
+			    Objeto         							    Tabela "X"
+			 ____________      							 ________________
+			|            |     							|                |
+			|  @entity   |          					|                |
+			|   CLASS    |            _____				|     ENTITY     |
+			|____________|           |     |			|________________|
+			|            |---------->| XML |----------->|                |
+			| @column    |           |_____|			|                |
+			| ATTRIBUTES |          					|     COLUMNS    |
+			|____________|          					|________________|
+			|            |         						|                |
+			| "select..."|     							|                |
+			|  METHODS   |    							| SQL COMMANDERS |
+			|____________|     							|________________|
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
