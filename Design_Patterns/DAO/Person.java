@@ -1,4 +1,4 @@
-package DAO.Archives;
+package DAO;
 
 public class Person {
 	final private int id;
