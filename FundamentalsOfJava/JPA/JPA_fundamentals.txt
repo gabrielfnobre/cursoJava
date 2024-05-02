@@ -1,6 +1,7 @@
 
 
 	JPA (JAVA PERSISTENCE API)
+	* Veja como implementamos um JPA na pasta "example-jpa" dentro da pasta "CursoJava"
 	
 	
 	O JPA, traduzido "API de Persistência do Java", de forma resumida é uma API interna
