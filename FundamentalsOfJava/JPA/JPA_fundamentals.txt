@@ -109,6 +109,79 @@
 	
 	
 	
+	A IMPORTÂNCIA DA IMPLEMENTAÇÃO DO ORM
+	
+	O padrão ORM - Object Relational Mapper (Mapeador de Objeto Relacional) - é respon-
+	sável por implementar o estilo de mapeamento que deveremos utilizar para fazer nos-
+	sas integrações ao banco de dados.
+	
+	É ele que diz ao framework integrador, no nosso caso o mais utilizado é o Hibernate,
+	no que o framework deverá se concentrar para fazer a integração entre classes e enti-
+	dades, atributos e colunas, métodos e comandos SQL.
+	
+	Como o ORM faz isso?
+	Por através das @annotations.
+	
+	Existe uma série de @annotations que são reconhecidas pelo framework do Hibernate,
+	bem como convenções que são adotadas para que a integração ao BD seja feita. Esse es-
+	tilo de mapear os objetos é justamente o padrão ORM.
+	
+	Veja alguns exemplos de @annotations utilizadas...
+	
+		@Entity: Esta annotation é usada para marcar uma classe como uma entidade persis-
+				tente. Por convencão, se o nome da classe for exatamente o mesmo nome da
+				entidade no BD, o Hibernate já identifica a que tabela se refere uma de-
+				terminada classe.
+				
+		@Table: Esta annotation é usada para especificar o nome da tabela no banco de da-
+				dos que corresponde à entidade. Ela é usada em casos em que o nome da 
+				classe e o nome da tabela não são exatamente iguais. Geralmente usamos 
+				assim:
+				
+					@Entity
+					@Table(name = "products")
+					public class Product {
+						...
+					}
+					
+					Note que, pelo fato do nome da entidade estar no plural e a classe no
+					singular, foi necessário usar a @annotation "@Table" para mostrar ao
+					Hibernate a que tabela uma classe deve ser mapeada.
+					
+		@Id: Esta annotation é usada para marcar o atributo que atua como a chave primária 
+				da entidade.
+				
+		@GeneratedValue: Esta annotation é usada em conjunto com @Id para especificar a es-
+				tratégia de geração de valores para a chave primária. Quando usamos o valor 
+				"GenerationType.IDENTITY" o id gera auto-incrementos sequênciais para
+				todos os itens de uma determinada coluna. Veja o exemplo abaixo:
+				
+				 	@Id
+					@GeneratedValue(strategy = GenerationType.IDENTITY)
+					private Long id;
+					
+		@Column: Esta annotation é usada para mapear um atributo da classe para uma coluna 
+				específica no banco de dados. Quando um atributo possuí exatamente o mesmo
+				nome que uma coluna do BD, por convenção podemos utilizar apenas a annota-
+				tion "@Column", mas se o atributo tiver um nome diferente, deveremos passar
+				para o @Column o nome da coluna a qual desejamos mapear aquele determinado 
+				atributo. Veja o exemplo abaixo:
+				
+					@Column(name = "product_name")
+					private String productName;
+					
+		@ManyToOne e @OneToMany: Estas annotations são usadas para mapear relacionamentos 
+				entre entidades. Por exemplo, quando uma entidade tem uma relação muitos-
+				para-muitos ou um-para-um com outra entidade.
+				
+		@JoinColumn: Esta annotation é usada para especificar a coluna na tabela do banco de 
+				dados que mantém a chave estrangeira de outra coluna em outra tabela.
+				
+	Esses são apenas alguns exemplos, porém note que o ORM facilita a vida do desenvolvedor,
+	com apenas algumas annotations, conseguimos mapear os nossos objetos de forma simplifi-
+	cada, tornando o código facilmente manutenível e fácil de manter.
+				
+			
 	
 	
 	
