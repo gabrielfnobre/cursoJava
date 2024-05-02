@@ -4,8 +4,37 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 >
+	<!-- Representa uma conexão com um BD específico, se você  precisar usar vários BDs você vai precisar de vários per
+		sistence-unit para cada banco de dados especifico.-->
 	<persistence-unit name="example-jpa">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class></class>
 		
+		<properties>
+			<!-- Propriedades específicas do JPA: usadas para conexão com o BD -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/curso_java"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="Gasbre-645050"/>
+			
+			<!-- Propriedades específicas do Hibernate: para configurar o hibernate -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect"/> <!-- Define um dialeto para que o hibernate opere sobre o MySQL-->
+			<property name="hibernate.show_sql" value="true"/> <!-- Para mostrar os comandos SQL -->
+			<property name="hibernate.format_sql" value="true"/> <!-- Para mostrar os comandos no console -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/> <!-- Essa propriedade define que o hibernate irá gerar tabelas (não é muito utilizado) -->
+		</properties>
 	</persistence-unit>
-	
 </persistence>
+
+<!-- EXPLICAÇÃO
+	
+	Aqui nós temos o arquivo xml que configura: o JPA, a conexão com o BD e o Hibernate. 
+	É por através desse arquivo é que nós podemos dizer ao hibernate que banco de dados
+	tabelas, usuário, url, senha serão utilizados.
+	
+	Ele também define parâmetros do próprio hibernate, como o dialeto SQL a ser utiliza-
+	do, se os comandos gerados pelo hibernate serão mostrados no console ou não, ou se
+	o hibernate está autorizado ou não a gerar tabelas.
+	
+	Veja no exemplo acima como o nosso arquivo foi desenvolvido... 
+-->
