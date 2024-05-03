@@ -20,12 +20,17 @@ public class Aula01_CreateTableAndInsertUser {
 		EntityManager em = emf.createEntityManager();
 		
 		//Aqui instanciamos um objeto mapeado de usuário...
-		User_BD newUser = new User_BD("Djalma", "djalma@email.com");
+		User_BD newUser = new User_BD("Sony", "sony@email.com");
 		
-		//Ao pedir para persistir o objeto, se o banco de dados não tiver sido criado, ele será criado
-		//porém o objeto não será persistido, pois é necessário um comando transacional para que o Hi-
-		//bernate funcione.
+		//Para que uma inserção possa ser feita no banco de dados é necessário abrir um estado transa-
+		//cional com o banco de dados. Do contrário, se só usassemos o comando "persist" nada seria 
+		//feito.
+		em.getTransaction().begin();
+		//Ao pedir para persistir o objeto, se o banco de dados não tiver sido criado, ele será criado.
 		em.persist(newUser);
+		//O comando abaixo é utilizado para enviar os dados ao banco depois que a transação foi aberta.
+		//Se o commit não for feito, os dados não vão para o BD.
+		em.getTransaction().commit();
 		
 		//Temos que fechar a conexão com o banco de dados em com a fábrica de entidades.
 		em.close();
