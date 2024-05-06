@@ -32,7 +32,10 @@ public class User_BD {
 	private String name;
 	private String email;
 	
+	public User_BD() {}
+	
 	public User_BD(String name, String email) {
+		super();
 		this.name = name;
 		this.email = email;
 	}
