@@ -1,5 +1,9 @@
 package test;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -17,6 +21,10 @@ public class Aula02_FindOneElement {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("example-jpa");
 		EntityManager em = emf.createEntityManager();
 		
+		//Criamos uma pequena lista e um consumer para capturar os nomes pegos no BD...
+		List<String> names = new ArrayList<String>();
+		Consumer<String> printNames = p -> System.out.println(p);
+		
 		//Aqui criamos uma instancia de usuário que vamos usar várias vezes...
 		User_BD user; 
 		
@@ -24,20 +32,23 @@ public class Aula02_FindOneElement {
 		//usando o método "find", esse método é capaz de capturar um elemento pelo Id que foi 
 		//passado.
 		user = em.find(User_BD.class, 1L); //O método precisa de receber o objeto da classe e o id do elemento...
-		System.out.println(user.getName()); //--> Djalma
+		names.add(user.getName()); //--> Djalma
 
 		user = em.find(User_BD.class, 6L); //Note que para cada id passado, temos um resultado diferente no getName...
-		System.out.println(user.getName()); //--> Ethan
+		names.add(user.getName()); //--> Ethan
 
 		user = em.find(User_BD.class, 7L);
-		System.out.println(user.getName()); //--> Fábio
+		names.add(user.getName()); //--> Fábio
 
 		user = em.find(User_BD.class, 10L);
-		System.out.println(user.getName()); //--> Igor
+		names.add(user.getName()); //--> Igor
 		
 		//OBSERVAÇÃO IMPORTANTE:
 		//A classe User_BD precisa ter um método construtor padrão para que possamos capturar elementos
 		//para leitura!!! Do contrário teremos um InstantiationException no nosso Hibernate.
+		
+		//Imprimindo a lista de nomes...
+		names.forEach(printNames);
 		
 		em.close();
 		emf.close();
