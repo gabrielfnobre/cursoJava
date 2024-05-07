@@ -16,7 +16,7 @@ public class Aula04_UpdateOnOccurence {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("example-jpa");
 		EntityManager em = emf.createEntityManager();
 		
-		//Para fazer Updates é necessário que o Hibernate abra uma transção, somente com a
+		//Para fazer Updates é necessário que o Hibernate abra uma transação, somente com a
 		//transação é possível fazer alterações....
 		em.getTransaction().begin();
 		
@@ -25,12 +25,9 @@ public class Aula04_UpdateOnOccurence {
 		
 		//Usando os métodos setters comumente usados na orientação a objeto nós atribuímos
 		//os valores novos que desejamos que a ocorrência tenha...
-		user.setName("Fagundesh");
+		user.setName("Fagundes");
 		user.setEmail("fagundes@mail.com");
 		
-		//Após as mudanças feitas, é necessário fazer um "merge" ou "mescla" para que a mu-
-		//dança de fato aconteça.
-		em.merge(user);
 		//Também é necessário fazer um commit, para que o Hibernate possa finalizar a ope-
 		//ração...
 		em.getTransaction().commit();
