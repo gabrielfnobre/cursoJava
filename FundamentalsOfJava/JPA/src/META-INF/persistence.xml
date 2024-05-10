@@ -9,6 +9,9 @@
 	<persistence-unit name="example-jpa">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>model.user_example.User_BD</class> <!-- Aqui vão os nomes de todas as classes do projeto que serão utilizadas. -->
+		<class>model.user_example.Product</class> <!-- É importante colocar os nomes de todas as classes, pois se criamos mais
+		classes usando annotations no nosso sistema e não as definirmos no arquivo xml, o Hibernate entenderá que deve abrir uma
+		nova tabela toda vez que fizermos nossas operações. -->
 		
 		<properties>
 			<!-- Propriedades específicas do JPA: usadas para conexão com o BD -->

@@ -20,7 +20,7 @@ public class Aula01_CreateTableAndInsertUser {
 		EntityManager em = emf.createEntityManager();
 		
 		//Aqui instanciamos um objeto mapeado de usuário...
-		User_BD newUser = new User_BD("Hipafrodito", "Hipafrodito@email.com");
+		User_BD newUser = new User_BD("alemao", "alemao@email.com");
 		
 		//Para que uma inserção possa ser feita no banco de dados é necessário abrir um estado transa-
 		//cional com o banco de dados. Do contrário, se só usassemos o comando "persist" nada seria 
