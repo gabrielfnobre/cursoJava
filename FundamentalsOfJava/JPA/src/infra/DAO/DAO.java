@@ -83,4 +83,8 @@ public class DAO<E> { //Note que a classe DAO é genérica, o que torna possíve
 	public void close() {	//Temos também um método void para fechar a conexão com o banco.
 		em.close();
 	}
+	
+	public EntityManager setEm() {
+		return em;
+	}
 }
