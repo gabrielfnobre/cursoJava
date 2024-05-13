@@ -1,0 +1,104 @@
+
+	RELACIONAMENTOS NO JPA
+	
+	
+	Existem formas de representar relacionamentos no JPA que simulam relacionamentos nos nossos
+	objetos mapeados dentro de nossas classes.
+	
+	Vamos considerar como são feitos esses relacionamentos em comparação com os relacionamentos
+	feitos dentro de um banco relacional...
+	
+	
+	UM PARA UM:
+	
+	Abaixo temos uma comparação entre como o relacionamento 1:1 é feito no banco de dados e co-
+	mo é feito nas classes mapeadas. Note na classe mapeada que utilizamos a annotation @OneTo-
+	One no atributo que simula uma relação com uma instância única da outra classe que deseja-
+	mos nos relacionar.
+	
+	OBSERVAÇÃO: Representamos o relacionamento sendo feito de forma bidirecional somente para 
+	mostrar que isso é possível, porém, essa não é a estratégia mais utilizada no mercado, pois 
+	um relacionamentos bidirecional deve possuir garantias de que nenhum dado seja duplicado 
+	entre os atributos das 2 classes.O que geralmente fazemos é escolher a classe que será mais
+	utilizada no nosso modelo de negócios e atribuímos á ela a annotation OneToOne.
+	
+	 PK             PK      FK(unique)  |     Class Husband {            Class Wife {
+	 ___________    ___________         |     	                         
+	|___|___|___|  |___|___|___|        |     	@OneToOne|----------------|@OneToOne
+	|___|___|___|  |___|___|___|        |     	Wife wife                  Husband husband
+	|___|___|___|  |___|___|___|        |
+      |______________________|          |     }                          }
+      1                     1           |
+      Husband           Wife            |
+                                        |
+                                        
+    
+    UM PARA MUITOS:
+	
+	Abaixo temos uma comparação entre como o relacionamento 1:N é feito no banco de dados e co-
+	mo é feito nas classes mapeadas. Note que ocorre uma inversão de prioridades entre as enti-
+	dades no banco de dados e as classes no paradigma OO.
+	
+	Enquanto no mundo o Banco Relacional nossa tabela principal para representar o relacionamen-
+	to seria a tabela Son e a tabela Dad seria uma tabela adjacente somente para mostrar que um
+	Pai pode ter vários filhos, na classe mapeada a annotation principal para representar esse
+	relacionamento - @OneToMany - vai do lado da classe Dad, que recebe uma lista de filhos. 
+	Mesmo que utilizassemos mais a classe Son na nossa aplicação, ainda assim a annotation prin-
+	cipal sempre irá na classe que possuir a List de objetos da outra classe.
+	
+	Como podemos ver no exemplo abaixo, poderíamos usar a annotation "@ManyToOne" na classe Son,
+	ou seja, a classe que possuir apenas uma ocorrência da classe onde estiver o "@OneToMany"
+	mapeado. Mas se não quiséssemos nem mesmo utilizar essa annotation, ela não seria necessá
+	-ria, pois a annotation "OneToMany" já é suficiente.
+	
+	
+	 PK             PK      FK          |     Class Dad {                Class Son {
+	 ___________    ___________         |     	                         
+	|___|___|___|  |___|___|___|        |     	@OneToMany|---------------|@ManyToOne
+	|___|___|___|  |___|___|___|        |     	List<Son> sons             Dad dad
+	|___|___|___|  |___|___|___|        |
+      |______________________|          |     }                          }
+      1                     N           |
+      Son                 Dad           |
+                                        |
+                                                                   
+    
+    MUITOS PARA MUITOS:
+    
+	Abaixo temos uma comparação entre como o relacionamento N:M é feito no banco de dados e co-
+	mo é feito nas classes mapeadas. Note que enquanto as entidades precisam de uma 3ª tabela 
+	para simular um relacionamento N:M, no mundo OO essa representação pode ser feita direta-
+	mente, sem a necessidade de uma 3ª classe representadora.
+	
+	Para isso, ambas as classes receberão a annotation @ManyToMany sobre um atributo List onde
+	ambas irão conter as instâncias que são relacionadas com a instância atual de suas classes.
+	
+	
+	 PK                     PK          |     Class Uncle {                Class Son {
+	 ___________    ___________         |     	                         
+	|___|___|___|  |___|___|___|        |     	@ManyToMany|----------------|@ManyToMany
+	|___|___|___|  |___|___|___|        |     	List<Nephew> nephews         List<Uncle> uncles
+	|___|___|___|  |___|___|___|        |
+      |                      |          |     }                            }
+      |       FK__FK_        |          |
+      |______|___|___|_______|          |
+      N      |___|___|       N          |
+     Uncle   |___|___|  Nephew          |                  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
