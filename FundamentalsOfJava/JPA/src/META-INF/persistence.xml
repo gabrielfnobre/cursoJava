@@ -14,6 +14,8 @@
 		nova tabela toda vez que fizermos nossas operações. -->
 		<class>model.user_example.Clients</class>
 		<class>model.user_example.Seat</class>
+		<class>model.user_example.ClientBidirection</class>
+		<class>model.user_example.SeatBidirection</class>
 		<class>model.user_example.ProductDAO</class>
 		
 		<properties>

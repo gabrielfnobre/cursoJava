@@ -59,6 +59,10 @@ public class DAO<E> { //Note que a classe DAO é genérica, o que torna possíve
 		return this;
 	}
 	
+	public E findById(Long id){
+		return em.find(classe, id);
+	}
+	
 	public DAO<E> atomicInclusion(E entity){ 						 //Criamos também um método para inserção atômica, ou seja, para fazer todo o
 		return openTransaction().insert(entity).commitTransaction(); //processo de abrir transação, inserção e commit!
 	}

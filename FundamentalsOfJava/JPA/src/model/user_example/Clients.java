@@ -1,5 +1,6 @@
 package model.user_example;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,10 +38,11 @@ public class Clients {
 	//disso optamos por pegar o objeto inteiro, por que isso? Lembre-se que estamos usando
 	//OO com BD, podemos ter o melhor dos 2 mundos. Vale mais a pena pegar o objeto inteiro
 	//para podermos utilizar todos os seus atributos e métodos como desejarmos.
-	@OneToOne
-	@JoinColumn(name = "seat_id", unique = true)
-	private Seat seat;
-	private String name;
+	@OneToOne(cascade = CascadeType.PERSIST) 		//O cascade é usado para que o nosso código possa fazer operações em cascata, no caso estamos usando a operação
+	@JoinColumn(name = "seat_id", unique = true)	//"PERSIST", mas podemos fazer outras operações como "MERGE", "REMOVE", "DETACH" e outras. Para que servem ope-
+	private Seat seat;								//rações em cascata? Geralmente quando uma operação necessita que outra seja feita primeiro, podemos chamar es-
+	private String name;							//sa operação implícitamente por através do cascade. Por exemplo veja a aula 9 para ver um exemplo de cascade...
+	
 	
 	//Temos um método construtor padrão, necessário para que o JPA execute seus comandos...
 	public Clients() {}
