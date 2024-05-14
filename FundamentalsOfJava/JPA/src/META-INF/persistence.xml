@@ -25,7 +25,7 @@
 			
 			<!-- Propriedades específicas do Hibernate: para configurar o hibernate -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect"/> <!-- Define um dialeto para que o hibernate opere sobre o MySQL-->
-			<property name="hibernate.show_sql" value="false"/> <!-- Para mostrar os comandos SQL -->
+			<property name="hibernate.show_sql" value="true"/> <!-- Para mostrar os comandos SQL -->
 			<property name="hibernate.format_sql" value="true"/> <!-- Para mostrar os comandos no console -->
 			<property name="hibernate.hbm2ddl.auto" value="update"/> <!-- Essa propriedade define que o hibernate irá gerar tabelas (não é muito utilizado) -->
 		</properties>
