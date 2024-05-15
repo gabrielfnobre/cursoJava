@@ -9,20 +9,23 @@ public class Aula11_TestManyToOne {
 	public static void main(String[] args) {
 		
 		DAO<Object> dao = new DAO<>();
-		DAO<Product> daoProduct = new DAO<>(Product.class);
 
 		Orders order = new Orders();
-		Product noteBook = daoProduct.findById(2L);
-		OrderItem orderItem = new OrderItem(order, noteBook, 1);
+		Product refrigerator = new Product("refrigerator", 4525.99);
+		Product microwave = new Product("microwave", 400.99);
+		OrderItem orderItem = new OrderItem(order, refrigerator, 1);
+		OrderItem orderItem2 = new OrderItem(order, microwave, 1);
 		
 		dao
 			.openTransaction()
+			.insert(refrigerator)
+			.insert(microwave)
 			.insert(order)
 			.insert(orderItem)
+			.insert(orderItem2)
 			.commitTransaction()
 			.close();
 		
-		System.out.println(noteBook.getName());
 		
 	}
 }
