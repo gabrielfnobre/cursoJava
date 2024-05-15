@@ -17,6 +17,8 @@
 		<class>model.user_example.ClientBidirection</class>
 		<class>model.user_example.SeatBidirection</class>
 		<class>model.user_example.ProductDAO</class>
+		<class>model.user_example.Orders</class>
+		<class>model.user_example.OrderItem</class>
 		
 		<properties>
 			<!-- Propriedades específicas do JPA: usadas para conexão com o BD -->
