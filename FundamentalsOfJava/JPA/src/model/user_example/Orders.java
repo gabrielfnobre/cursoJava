@@ -9,13 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class Orders {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Date date;
+	private String date;
 	
 	public Orders() {
 		this(new Date());
@@ -23,7 +23,8 @@ public class Orders {
 	
 	public Orders(Date date) {
 		super();
-		this.date = date;
+		Date dateString = new Date();
+		this.date = dateString.toString();
 	}
 
 	public Long getId() {
@@ -34,12 +35,13 @@ public class Orders {
 		this.id = id;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
+		Date dateString = new Date();
+		this.date = dateString.toString();
 	}
 
 }
