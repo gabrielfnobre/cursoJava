@@ -35,31 +35,39 @@
     
     UM PARA MUITOS:
 	
-	Abaixo temos uma comparação entre como o relacionamento 1:N é feito no banco de dados e co-
-	mo é feito nas classes mapeadas. Note que ocorre uma inversão de prioridades entre as enti-
-	dades no banco de dados e as classes no paradigma OO.
+	Abaixo temos uma comparação de como é feito o relacionamento 1:N entre o banco de dados e 
+	nossas classes mapeadas. Note que tanto no banco de dados como nas classes mapeadas no pa-
+	radigma OO, esse relacionamento pode ser mapeado de forma unidirecional usando a ordem di-
+	recional N:1, ou seja, a tabela ou classe principal para representar a relação sempre se-
+	rá aquela que tiver muitas (N) ocorrências dela para (1) ocorrência na classe relacionada.
 	
-	Enquanto no mundo o Banco Relacional nossa tabela principal para representar o relacionamen-
-	to seria a tabela Son e a tabela Dad seria uma tabela adjacente somente para mostrar que um
-	Pai pode ter vários filhos, na classe mapeada a annotation principal para representar esse
-	relacionamento - @OneToMany - vai do lado da classe Dad, que recebe uma lista de filhos. 
-	Mesmo que utilizassemos mais a classe Son na nossa aplicação, ainda assim a annotation prin-
-	cipal sempre irá na classe que possuir a List de objetos da outra classe.
+	Note que a nossa classe principal no Banco de Dados (aquela que demonstra o maior número 
+	de informações) é a classe "Son", pois ela é quem possuí a ordem relacional "N", pois mui-
+	tos filhos podem pertencer a "1" pai, fazendo com que a coluna "id_dad" nela possa ter 
+	valores duplicados. Mas na tabela Dad não poderá haver duplicação do "id" de Dad. (Pode-
+	mos até fazer um relacionamento bidirecional entre elas, onde Dad possuíria uma coluna FK
+	para os valores de id de Son, aceitando valores duplicados para essa coluna (id_Son), mas
+	geralmente isso não é feito em banco de dados)
 	
-	Como podemos ver no exemplo abaixo, poderíamos usar a annotation "@ManyToOne" na classe Son,
-	ou seja, a classe que possuir apenas uma ocorrência da classe onde estiver o "@OneToMany"
-	mapeado. Mas se não quiséssemos nem mesmo utilizar essa annotation, ela não seria necessá
-	-ria, pois a annotation "OneToMany" já é suficiente.
+	Veja abaixo como essa representação é feita entre banco de dados e o paradigma O.O. Para 
+	deixar claro a annotation principal para representar essa relação é @ManyToOne que pode 
+	ser usada para representar essa relação unidirecionalmente, essa annotation sempre é co-
+	locada na classe que irá possuir a coluna FK de um relacionamento N:1, que no caso é a 
+	classe Son.
+	
+	Note também que podemos representar essa relação bidirecionalmente no mundo O.O usando a
+	annotation @OneToMany na classe Dad para o atributo que representa um objeto da classe
+	Son.
 	
 	
-	 PK             PK      FK          |     Class Dad {                Class Son {
+	 PK      FK     PK                  |     Class Dad {                Class Son {
 	 ___________    ___________         |     	                         
 	|___|___|___|  |___|___|___|        |     	@OneToMany|---------------|@ManyToOne
-	|___|___|___|  |___|___|___|        |     	List<Son> sons             Dad dad
+	|___|___|___|  |___|___|___|        |     	Son sons                   Dad dad
 	|___|___|___|  |___|___|___|        |
-      |______________________|          |     }                          }
-      1                     N           |
-      Son                 Dad           |
+              |______|                  |     }                          }
+               N     1                  |
+    Son             Dad                 |
                                         |
                                                                    
     

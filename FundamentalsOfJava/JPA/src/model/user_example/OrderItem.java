@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/* Abaixo temos a representação da classe 
+ * */
+
 @Entity
 @Table(name = "order_item")
 public class OrderItem {
