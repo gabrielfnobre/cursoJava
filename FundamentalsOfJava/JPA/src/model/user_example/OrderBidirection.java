@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,8 +46,15 @@ public class OrderBidirection {
 	//rio teríamos nosso JPA geraria mais uma coluna para essa entidade, o que causaria uma rela-
 	//ção 1:N bidirecional no banco, podendo gerar inconsistências. Note também que todos os va-
 	//lores da classe relacionada que fizerem referência a um objeto dessa classe serão colocados
-	//numa List de elementos, isso é feito de forma automática graças a annotation @OneToMany...
-	@OneToMany(mappedBy = "order")
+	//numa List de elementos, isso é feito de forma automática graças a annotation @OneToMany.
+	
+	//OBSERVAÇÃO IMPORTANTE: Veja na aula 13 que nós chamamos pelos itens do pedido de forma 
+	//EAGER, e isso foi possível por que usamos o atributo "fetch" no modo "EAGER" do contrário
+	//ele assumiria o valor padrão que é "LAZY" o que faria o faria com que os valores dos itens
+	//nem aparecesse, pois no exemplo da aula, assim que chamamos pelo elemento já fechamos a 
+	//conexão com o banco de dados. Caso tenha ficado em dúvidas, acesse a aula 13 para entender
+	//melhor o que aconteceu...
+	@OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
 	private List<OrderItemBidirection> items;
 	
 	//Temos nosso construtor padrão, como é mandatório no JPA, ele já faz a atribuição da data 
