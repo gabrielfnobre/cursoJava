@@ -63,7 +63,7 @@
 	 PK      FK     PK                  |     Class Dad {                Class Son {
 	 ___________    ___________         |     	                         
 	|___|___|___|  |___|___|___|        |     	@OneToMany|---------------|@ManyToOne
-	|___|___|___|  |___|___|___|        |     	Son sons                   Dad dad
+	|___|___|___|  |___|___|___|        |     	List<Son> sons             Dad dad
 	|___|___|___|  |___|___|___|        |
               |______|                  |     }                          }
                N     1                  |
@@ -81,10 +81,19 @@
 	Para isso, ambas as classes receberão a annotation @ManyToMany sobre um atributo List onde
 	ambas irão conter as instâncias que são relacionadas com a instância atual de suas classes.
 	
+	Embora no mundo O.O não tenhamos uma 3 classe para representar a entidade que simula a re-
+	lação N:M, a relação N:M no mundo O.O não deixa de ser bi-direcional, por isso precisamos
+	explicitar para o JPA quem será o lado principal na representação do relacionamento, para
+	isso serve o atributo "mappedBy" da annotation @ManyToMany. Com esse atributo mostramos a
+	uma classe que o outro lado da relação já está mapeando o relacionamento, no exemplo abai-
+	xo podemos ver que o lado "uncle" da relação está mapeando o relacionamento por através da
+	tabela "uncle_nephew", por isso, na nossa classe "Nephew" mostramos que o relacionamento 
+	já está sendo mapeado no atributo "nephews" da classa relacionadora "Uncle".
 	
-	 PK                     PK          |     Class Uncle {                Class Son {
+	
+	 PK                     PK          |     Class Uncle {                Class Nephew {
 	 ___________    ___________         |     	                         
-	|___|___|___|  |___|___|___|        |     	@ManyToMany|----------------|@ManyToMany
+	|___|___|___|  |___|___|___|        |     	@ManyToMany|----------------|@ManyToMany(mappedBy = "nephews")
 	|___|___|___|  |___|___|___|        |     	List<Nephew> nephews         List<Uncle> uncles
 	|___|___|___|  |___|___|___|        |
       |                      |          |     }                            }
@@ -92,8 +101,8 @@
       |______|___|___|_______|          |
       N      |___|___|       N          |
      Uncle   |___|___|  Nephew          |                  
-	
-	
+										|
+		    Uncle_Nephew				|
 	
 	
 	

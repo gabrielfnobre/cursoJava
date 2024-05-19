@@ -54,7 +54,10 @@ public class Aula13_TestAttributesEagerAndLazy {
 		
 		//Note que podemos fazer a pesquisa dos itens sem nos preocupar com o fechamento da conexão!
 		for(OrderItemBidirection item: items) {
-			System.out.println(item.getId() + " - " + item.getProduct().getName() + " - R$ " + item.getPrice() + " - " +  item.getQuantity() + "un.");
+			System.out.println(item.getId() + 
+					" - " + item.getProduct().getName() + 
+					" - R$ " + item.getPrice() + 
+					" - " +  item.getQuantity() + "un.");
 		}
 		
 	}

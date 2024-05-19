@@ -21,6 +21,8 @@
 		<class>model.user_example.OrderItem</class>
 		<class>model.user_example.OrderBidirection</class>
 		<class>model.user_example.OrderItemBidirection</class>
+		<class>model.user_example.Uncle</class>
+		<class>model.user_example.Nephew</class>
 		
 		<properties>
 			<!-- Propriedades específicas do JPA: usadas para conexão com o BD -->
