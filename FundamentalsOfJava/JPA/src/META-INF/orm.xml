@@ -7,7 +7,7 @@
     
     <named-query name="movies_note_bigger_than">
 		<query>
-			select m from Movies m
+			select distinct m from Movies m
 			join fetch m.actors
 			where m.note > :note
 		</query>

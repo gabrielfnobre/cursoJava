@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /* Aqui podemos ver como fizemos o relacionamento N:M entre a tabela "movies" e "actors", onde a classe 
@@ -19,6 +20,10 @@ import javax.persistence.Table;
 //mos o nome dessa classe para o arquivo "persistend.xml"...
 @Entity
 @Table(name = "actors")
+@NamedQuery(
+		name = "show_me_all_actors",
+		query = "SELECT a FROM Actors a"
+		)
 public class Actors {
 
 	//Geramos um id auto-incremental para a entidade...
@@ -84,6 +89,10 @@ public class Actors {
 
 	public void setMovies(List<Movies> movies) {
 		this.movies = movies;
+	}
+	
+	public String myNamedQueryExample(){
+		return "show_me_all_actors";
 	}
 	
 }

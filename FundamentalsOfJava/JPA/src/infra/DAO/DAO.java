@@ -91,4 +91,17 @@ public class DAO<E> { //Note que a classe DAO é genérica, o que torna possíve
 	public EntityManager setEm() {
 		return em;
 	}
+	
+	public List<E> queryNamed(String queryNamed, Object... params){
+		TypedQuery<E> query = em.createNamedQuery(queryNamed, classe);
+		for (int i = 0; i < params.length; i+=2) {
+			query.setParameter(params[i].toString(), params[i + 1]);
+		}
+		return query.getResultList();
+	}
+	
+	public List<E> queryNamedNoParams(String queryNamed){
+		TypedQuery<E> query = em.createNamedQuery(queryNamed, classe);
+		return query.getResultList();
+	}
 }
