@@ -8,6 +8,7 @@
 		sistence-unit para cada banco de dados especifico.-->
 	<persistence-unit name="example-jpa">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<mapping-file>META-INF/orm.xml</mapping-file>
 		<class>model.user_example.User_BD</class> <!-- Aqui vão os nomes de todas as classes do projeto que serão utilizadas. -->
 		<class>model.user_example.Product</class> <!-- É importante colocar os nomes de todas as classes, pois se criamos mais
 		classes usando annotations no nosso sistema e não as definirmos no arquivo xml, o Hibernate entenderá que deve abrir uma
