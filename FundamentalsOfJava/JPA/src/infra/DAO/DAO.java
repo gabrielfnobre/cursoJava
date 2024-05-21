@@ -114,4 +114,9 @@ public class DAO<E> { //Note que a classe DAO é genérica, o que torna possíve
 		TypedQuery<E> query = em.createNamedQuery(queryNamed, classe);
 		return query.getResultList();
 	}
+	
+	public E queryAverageMovies(String queryNamed, Object... params) {
+		List<E> list = queryNamed(queryNamed, params);
+		return list.isEmpty() ? null : list.get(0);
+	}
 }
