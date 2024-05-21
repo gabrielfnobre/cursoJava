@@ -8,6 +8,10 @@
 		sistence-unit para cada banco de dados especifico.-->
 	<persistence-unit name="example-jpa">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		
+		<!-- A tag mapping-file faz o mapeamento de qualquer arquivo "xml" externo, onde é possível utilizar seus valores por
+		através do persistence.xml, no caso abaixo estamos buscando pelas Named Queries geradas no arquivo "orm.xml" que está
+		dentro de "META-INF"... -->
 		<mapping-file>META-INF/orm.xml</mapping-file>
 		<class>model.user_example.User_BD</class> <!-- Aqui vão os nomes de todas as classes do projeto que serão utilizadas. -->
 		<class>model.user_example.Product</class> <!-- É importante colocar os nomes de todas as classes, pois se criamos mais

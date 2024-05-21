@@ -92,6 +92,13 @@ public class DAO<E> { //Note que a classe DAO é genérica, o que torna possíve
 		return em;
 	}
 	
+	//Abaixo temos um método para usar nossas Named Queries, note que esse método retorna uma lista
+	//genérica de qualquer coisa e recebe como parâmetro o nome de uma Named Query e um array de 
+	//parâmetros. Por através da Named Query podemos gerar uma consulta que será capturada por um
+	//TypedQuery e poderemos iterar sobre esse objeto passando os parâmetros que desejamos buscar 
+	//no array "params" usando o método "setParameter" dentro do laço for que itera de 2 em 2 para
+	//buscar os parâmetros corretamente. E no final todos os valores capturados no TypedQuery serão
+	//armazenados na List por através do método "getResultList"...
 	public List<E> queryNamed(String queryNamed, Object... params){
 		TypedQuery<E> query = em.createNamedQuery(queryNamed, classe);
 		for (int i = 0; i < params.length; i+=2) {
@@ -100,6 +107,9 @@ public class DAO<E> { //Note que a classe DAO é genérica, o que torna possíve
 		return query.getResultList();
 	}
 	
+	//Abaixo temos um método que faz uma busca simples, executando somente o comando que tiver si-
+	//do passado na NamedQuery, sem capturar nenhum parâmetro adicional na consulta e retornando 
+	//a lista de elementos capturados na consulta...
 	public List<E> queryNamedNoParams(String queryNamed){
 		TypedQuery<E> query = em.createNamedQuery(queryNamed, classe);
 		return query.getResultList();

@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Aqui temos o exemplo de como a implementação do nosso arquivo orm.xml foi feito para capturar as Named Query
+	que desejarmos criar... -->
+
+<!-- Primeiro usamos a tag "entity-mappings" que irá conter os parâmetros necessários para integrarmos nossas 
+	Named Queries ao nosso arquivo persistence.xml, para chamar por elas quando for necessário usá-las... -->
 <entity-mappings
     xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
     version="2.1">
     
+    <!-- Aqui temos o exemplo de 1 Named Query, podemos ter várias no arquivo assim como desejarmos, note que por
+    	através do atributo "name" nossa tag "named-query" recebe um nome. Esse nome reconhecerá a query jpql que 
+    	for gerada dentro das tags "query"... -->
     <named-query name="movies_note_bigger_than">
 		<query>
 			select distinct m from Movies m
 			join fetch m.actors
 			where m.note > :note
 		</query>
+		<!-- Note que nessa consulta jpql estamos usando "fetch" para trazer os demais valores da coluna "actors"
+			para os capturarmos mais facilmente. E também estamos recebendo valores como parâmetro, isso fica 
+			evidente no ":note", o que passarmos como parâmetro no método "setParameters" do objeto TypedQuery
+			será aceito para o atributo "note"... -->
 	</named-query>
     
+    <!-- Todas as named-queries serão reconhecidas pelo "persistence.xml" por através da tag "mapping-file" veja
+    	a implementação no arquivo "persistence.xml"... -->
 </entity-mappings>

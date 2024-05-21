@@ -20,6 +20,13 @@ import javax.persistence.Table;
 //mos o nome dessa classe para o arquivo "persistend.xml"...
 @Entity
 @Table(name = "actors")
+//Note que nessa classe temos uma annotation @NamedQuery, nessa annotation podemos designar uma query
+//nomeada que poderá ser chamada pelo nome para executar qualquer comando jpql que for passado como 
+//parâmetro no atributo "query", isso facilita o reaproveitamento de código, pois podemos usar o mes-
+//mo método para utilizar queries nomeadas diferentes. Embora possamos gerar várias Named Queries na
+//nossas classes, essa não é a estratégia mais indicada, pois ela torna a classe muito poluída, o mais
+//utilizado é um arquivo xml, onde poderemos armazenar todas as nossas Named Query, como fizemos no 
+//arquivo "orm.xml"...
 @NamedQuery(
 		name = "show_me_all_actors",
 		query = "SELECT a FROM Actors a"
