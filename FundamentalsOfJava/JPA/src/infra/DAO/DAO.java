@@ -115,6 +115,10 @@ public class DAO<E> { //Note que a classe DAO é genérica, o que torna possíve
 		return query.getResultList();
 	}
 	
+	//Abaixo criamos um método para nos retornar valores agregados a partir de uma busca Named Que-
+	//ry ou Named-Native-Query. Para isso, note que utilizamos dentro desse método o método "query-
+	//Named" passando como parâmetro o nome da query e dos parâmetros referentes aos valores que 
+	//desejamos capturar...
 	public E queryAverageMovies(String queryNamed, Object... params) {
 		List<E> list = queryNamed(queryNamed, params);
 		return list.isEmpty() ? null : list.get(0);
