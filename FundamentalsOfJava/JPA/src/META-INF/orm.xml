@@ -29,12 +29,19 @@
     <!-- Todas as named-queries serão reconhecidas pelo "persistence.xml" por através da tag "mapping-file" veja
     	a implementação no arquivo "persistence.xml"... -->
     	
+    <!-- O exemplo abaixo é referente a uma consulta feita por através de Named Native Query, onde desejamos exe-
+    cutar um comando SQL para capturar a média da nota dos filmes da nossa tabela de filmes, note que a named-na-
+    tive-query recebe um nome para ser identificada e temos também um result-set-mapping que faz a ligação com a
+    classe que desejamos usar para retornar o valor corretamente... -->
     <named-native-query name="getGeneralAverageOfMovies" result-set-mapping="NoteMovieMap">
     	<query>
     		SELECT avg(note) as average from movies
     	</query>
     </named-native-query>
     
+    <!-- Essa tag é responsável por fazer a ligação com a nossa classe não mapeada "MovieNote", note que o nosso
+    result-set faz referência ao construtor da classe MovieNote e trará o resultado da consulta sobre o atributo
+    "average" dessa classe... -->
     <sql-result-set-mapping name="NoteMovieMap">
     	<constructor-result target-class="model.user_example.MovieNote">
     		<column name="average" class="java.lang.Double" />
