@@ -1,28 +1,23 @@
-package model.user_example.Inheritance.SINGLE_TABLE;
+package model.user_example.Inheritance.TABLE_PER_CLASS;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-
-/* Note aqui que usamos apenas algumas annotations para simular a herança da nossa classe para o Banco de Dados
- * */
+import javax.persistence.Table;
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "type")
-@DiscriminatorValue("ST")
-public class Student {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Table(name = "student_table_per_class")
+public class StudentTABLE_PER_CLASS {
 
 	@Id
 	private Long registration;
 	private String name;
 	
-	public Student() {}
+	public StudentTABLE_PER_CLASS() {}
 
-	public Student(Long registration, String name) {
+	public StudentTABLE_PER_CLASS(Long registration, String name) {
 		super();
 		this.registration = registration;
 		this.name = name;
@@ -43,5 +38,7 @@ public class Student {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 	
 }
