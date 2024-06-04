@@ -1,0 +1,32 @@
+
+	SOBRE O SISTEMA DE MÓDULOS
+
+	
+	A partir do Java 9, foi implementado ao java uma ferramenta que mudou a forma como se encapsula pacotes no java
+	para sempre! Essa ferramenta é o famoso "sistema de módulos" do java. Para que serve o sistema de módulos? Veja
+	a figura abaixo e você irá entender:
+	
+	     ________                               ___________________           
+	    | A.jar  |                             |       B.jar       |
+		|________|                             |___________________|
+		|        |   Dependência desejável     |                   |
+		| packet |---------------------------->| public packet___  |
+		|        |                             |                 | |
+		|________|   X<------------------------| public packet___| |
+		               Dependência indesejável |___________________|
+		   
+		            
+	Quando trabalhamos com grandes aplicações, geralmente temos a necessidade de gerar dependências entre vários ar-
+	quivos .jar, ou projetos diferentes, como vemos no exemplo acima, onde o projeto A necessita ter uma dependência 
+	com o projeto B. Talvez você diga, então está fácil, é só deixar as classes do pacote B públicas, assim qualquer 
+	projeto poderá acessá-las, realmente essa seria uma solução.
+
+	Porém, note que os 2 pacotes de B possuem uma relação de dependência entre si, ou seja, os 2 precisarão estar 
+	públicos para que possamos utilizar as classes entre os 2 pacotes dentro do mesmo projeto. Mas esse ato acaba 
+	afetando o nosso relacionamento com os demais projetos externos, pois as 2 classes agora estão públicas para 
+	qualquer projeto acessá-las, gerando dependências indesejáveis, fazendo com que nossos pacotes estejam disponí-
+	veis - e portanto desprotegidos contra violações - para outros pacotes.
+	
+	Como resolver isso?
+	
+	Anges do 
