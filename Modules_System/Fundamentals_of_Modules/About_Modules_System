@@ -9,7 +9,7 @@
 	     ________                               ___________________           
 	    | A.jar  |                             |       B.jar       |
 		|________|                             |___________________|
-		|        |   Dependência desejável     |                   |
+		|        |   Dependência desejável     |                   |s
 		| packet |---------------------------->| public packet___  |
 		|        |                             |                 | |
 		|________|   X<------------------------| public packet___| |
