@@ -1,0 +1,81 @@
+
+	DEPENDÊNCIAS ENTRE PROJETOS
+
+	
+	No java, quando trabalhamos com grandes aplicações que necessitam de interagir entre vários projetos diferentes
+	temos o que chamamos de "Dependências de Projetos". Essas dependências de projeto são informadas ao java por a-
+	través do classpath da aplicação, onde o classpath fala que um projeto ou arquivo ".jar" é dependente de outro 
+	arquivo ".jar".
+	
+	Existem 2 formas de passar essa informação ao Java:
+	
+		* REFERENCIANDO POR ATRAVÉS DE BIBLIOTECA:
+		     ___________
+			|           |
+			| PROJECT 1 |
+			|___________| <<-----------| Referenced Library [jre]
+				  |       ______         ________________________
+				  |______|		|                    |
+		                 | LIBS |____________________|
+		                 |______|
+		                     |       _______________
+		                     |______|               |
+		                     |      | PROJECT_2.jar |
+		                     |      |_______________|
+		                     |       _______________
+		                     |______|               |
+		                            | PROJECT_3.jar |
+		                            |_______________|                     
+		                            
+		  	Uma das formas mais utilizadas é conforme o diagrama acima onde adicionamos diretamente os projetos 
+		  	que desejamos usar como arquivos ".jar" a uma pasta do nosso projeto. (Geralmente essa pasta é nomeada
+		  	como "libs" pelos desenvolvedores) Depois disso, por através das configurações de build-path, adiciona-
+		  	mos esse projeto ".jar" as nossas libs referenciadas, ou seja, no build-path haverá a referência para
+		  	que o java encontre o caminho do projeto e das classes que iremos utilizar no projeto.
+		  	
+		  	
+		* REFERENCIANDO PELO MODULEPATH:
+		     ___________
+			|           |
+			| PROJECT 1 | <<--------------------------------|
+			|___________|                                   |
+		     _______________                                |
+		    |               |                               |
+		    | PROJECT_2.jar |------------------------>> MODULEPATH
+		    |_______________|                               
+		     _______________                                ^
+		    |               |                               ^
+		    | PROJECT_2.jar |-------------------------------|
+		    |_______________|
+            		                            
+		  	Outra forma de fazer a dependência entre projetos é por através do "modulepath" do nosso projeto, quan-
+		  	do geramos um arquivo "module-info.java", nosso projeto também irá gerar um modulepath, que assim como 
+		  	o classpath é responsável por mostrar nossas dependências e referências para o java, porém irá mostrar 
+		  	nossas dependências.
+		  	
+		  	Note que quando temos um modulepath configurado não temos a necessidade de gerar pasta armazenar arqui-
+		  	vos ".jar" e referenciá-los para nossas bibliotecas. Toda a referenciação é feita por através do "modu-
+		  	"lepath".
+		  	
+		  
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
+		  	
