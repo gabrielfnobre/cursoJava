@@ -6,14 +6,14 @@
 	para sempre! Essa ferramenta é o famoso "sistema de módulos" do java. Para que serve o sistema de módulos? Veja
 	a figura abaixo e você irá entender:
 	
-	     ________                               ___________________           
-	    | A.jar  |                             |       B.jar       |
-		|________|                             |___________________|
-		|        |   Dependência desejável     |                   |s
-		| packet |---------------------------->| public packet___  |
-		|        |                             |                 | |
-		|________|   X<------------------------| public packet___| |
-		               Dependência indesejável |___________________|
+	    						 ________                               ___________________           
+	    						| A.jar  |                             |       B.jar       |
+								|________|                             |___________________|
+								|        |   Dependência desejável     |                   |
+								| packet |---------------------------->| public packet___  |
+								|        |                             |                 | |
+								|________|   X<------------------------| public packet___| |
+								               Dependência indesejável |___________________|
 		   
 		            
 	Quando trabalhamos com grandes aplicações, geralmente temos a necessidade de gerar dependências entre vários ar-
@@ -27,6 +27,68 @@
 	qualquer projeto acessá-las, gerando dependências indesejáveis, fazendo com que nossos pacotes estejam disponí-
 	veis - e portanto desprotegidos contra violações - para outros pacotes.
 	
-	Como resolver isso?
+	Isso pode não parecer um problema muito grande quando pensamos em pequenas aplicações ou poderíamos resolver 
+	isso mandando um email para todos no trabalho proibindo o uso inadvertido de algumas classes, ou poderíamos 
+	pensar em alguma maneira engenhosa de evitar que algumas classes públicas sejam usadas. Tudo isso pode cair por
+	terra quando falamos de grande aplicações e do fator tempo. Pois grandes aplicações exigem grandes equipes que
+	uma hora ou outra por esquecimento ou falha de comunicação podem esquecer que determinada classe pública não 
+	poderia ser utilizada, sem falar que com o tempo o sistema pode precisar passar por mudanças ou a própria equi-
+	pe de desenvolvimento irá mudar, nesses momentos os funcionários novos não irão se lembrar do tal email, e a 
+	forma engenhosa de evitar que classes públicas fossem usadas por pacotes externos ao projeto, não serão tão en-
+	genhosas assim na hora de fazer toda uma reestruturação no sistema.
 	
-	Anges do 
+	Por isso, a equipe de desenvolvimento do Java sabiamente criou a estrutura de módulos. A estrutura de módulos
+	consiste em um arquivo do tipo "module-info.java" que irá dizer a todos os projetos internos e externos quem
+	pode e quem não pode ser acessado por fora do projeto. Veja o diagrama abaixo...
+	
+	
+	    			 ____________________                               _______________________           
+	    			|       A.jar        |                             |         B.jar         |
+					|____________________|                             |_______________________|
+					|                    |                             |                       |
+					| packet             |                             |  _public packet a___  |
+					| ^                  |    Dependência desejável    | |                   | |
+					| |_module-info.java |---------------|             | | public packet b___| |
+					|    .B.jar public a |               |             | |                     |
+					|____________________|               |------------>| -->module-info.java   |              
+	                                                                   |     .public packet a  |
+	                                                                   |_______________________|
+	
+	
+	No diagrama você poderá perceber que as mesmas classes do exemplo anterior receberam um arquivo "module-info.
+	java", note que dentro do projeto B.jar o nosso pacote "a" possuí uma dependência interna com o pacote que 
+	está "b" e ambos estão públicos, mas note que embora o pacote "b" esteja público ele não possuí mais liberação 
+	para ser usado de forma indesejável como tínhamos no diagrama acima. Isso acontece por que quando temos um ar-
+	quivo module-info.java nos nossos projetos automaticamente todos os pacotes são trancados para os projetos ex-
+	teriores, apenas os pacotes que dissermos explicitamente ao module-info.java que desejamos que se tornem visí-
+	veis serão visíveis para os projetos externos.
+	
+	Note no diagrama que dissemos ao module-info.java que desejamos que o pacote "a" seja visto por projetos exter-
+	nos, mas também foi necessário fazer um arquivo "module-info.java" no projeto "A.jar", pois o sistema de módu-
+	los trabalha em via de mão dupla, é necessário dizer a um projeto que você quer exportar um pacote para fora
+	assim como é necessário dizer ao pacote recebedor que você quer requisitar um pacote de fora.
+	
+	DETALHE IMPORTANTE!!!
+	
+	O sistema de módulos foi desenvolvido de uma forma a se evitar dependências cíclicas, o que é isso? Digamos 
+	que no diagrama acima o módulo A (chamamos de módulo os projetos .jar) tenha uma dependência com o módulo B,
+	mas o módulo B também tem uma dependência com o módulo A, tendo exports e requires entre si. Isso NÃO É PER-
+	MITIDO entre os pacotes que usam sistema de módulos. 
+	
+	E isso é uma coisa muito boa, afinal dependência cíclica é muito ruim para o projeto, afinal posteriormente
+	será necessário fazer mudanças na aplicação e essas mudanças serão muito mais difíceis de serem feitas se o
+	projeto possuir dependências cíclicas, podendo até invalidar todo o projeto.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
