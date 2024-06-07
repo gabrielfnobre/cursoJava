@@ -80,7 +80,10 @@
 	projeto possuir dependências cíclicas, podendo até invalidar todo o projeto.
 	
 	
+	OBSERVAÇÃO!!!
 	
+	Veja os repositórios "app-calculator" e "app-finance", principalmente os arquivos "module-info.java" para 
+	entender como fizemos os exports e requires das classes que desejamos usar nos nossos projetos.
 	
 	
 	
